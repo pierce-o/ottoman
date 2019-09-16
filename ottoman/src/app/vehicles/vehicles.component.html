@@ -1,0 +1,7 @@
+<ng-container *ngIf="vehicles.length > 0; else message">
+    <div *ngFor="let vehicle of vehicles">
+
+    </div>
+</ng-container>
+
+<ng-template #message> <h1 class="error-message"> You don't have any vehicles currently saved. </h1> </ng-template>

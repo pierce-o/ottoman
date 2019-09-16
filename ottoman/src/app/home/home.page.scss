@@ -1,0 +1,43 @@
+$primary-color: #2D78AB;
+$disabled-color: #BBBBBB;
+
+.main {
+
+  font-family: 'DM Sans', sans-serif;
+  
+  .buttons {
+    
+    display: flex;
+
+    .button {
+      color: $disabled-color;
+      flex: 1;
+      text-align: center;
+
+      padding-bottom: .4em;
+
+      h1 {
+        font-size: 1.1em;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+      }
+
+    }
+
+    .button-highlight {
+      color: $primary-color;
+      border-bottom: 4px solid $primary-color;
+    }
+
+  }
+
+  .tab-error {
+    color: #b31b2a;
+    width: 100%;
+    margin-top: 2em;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+}

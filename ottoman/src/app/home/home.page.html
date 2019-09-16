@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      ottoman
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+  <div class="main">
+
+    <div class="buttons">
+      <div class="button" [ngClass]="selectedTab == 'vehicles' ? 'button-highlight' : ''" (click)="selectedTab = 'vehicles'"><h1>Vehicles</h1></div>
+      <div class="button" [ngClass]="selectedTab == 'registrations' ? 'button-highlight' : ''" (click)="selectedTab = 'registrations'"><h1>Registrations</h1></div>
+    </div>
+
+    <ng-container [ngSwitch]="selectedTab">
+      
+      <ng-container *ngSwitchCase="'vehicles'">
+        <app-vehicles></app-vehicles>
+      </ng-container>
+      <ng-container *ngSwitchCase="'registrations'"> 
+        <app-registrations></app-registrations>
+      </ng-container>
+      <div *ngSwitchDefault class="tab-error"> An error has occured. Please reload the app. </div>
+
+    </ng-container>
+    
+
+  </div>
+
+</ion-content>
