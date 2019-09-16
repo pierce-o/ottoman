@@ -1,6 +1,8 @@
 $primary-color: #2D78AB;
 $disabled-color: #BBBBBB;
 
+$controls-padding: .5em .8em .5em .8em;
+
 .main {
 
   font-family: 'DM Sans', sans-serif;
@@ -28,6 +30,37 @@ $disabled-color: #BBBBBB;
     .button-highlight {
       color: $primary-color;
       border-bottom: 4px solid $primary-color;
+    }
+
+  }
+
+  .controls {
+
+    font-weight: bold;
+    font-size: .8em;
+    display: flex;
+    
+    .disabled {
+      color: $disabled-color;
+    }
+
+    .delete {
+      margin: 0;
+      padding: $controls-padding;
+    }
+
+    .edit {
+      margin: 0;
+      padding: $controls-padding;
+      color: $primary-color;
+    }
+
+    .add {
+      margin: 0;
+      padding: $controls-padding;
+      flex: 1;
+      color: $primary-color;
+      text-align: right;
     }
 
   }

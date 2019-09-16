@@ -18,8 +18,14 @@
       <div class="button" [ngClass]="selectedTab == 'registrations' ? 'button-highlight' : ''" (click)="selectedTab = 'registrations'"><h1>Registrations</h1></div>
     </div>
 
+    <div class="controls">
+      <p class="delete" [ngClass]="selectedIndex > -1 ? '' : 'disabled'">DELETE</p>
+      <p class="edit">EDIT</p>
+      <p class="add">ADD</p>
+    </div>
+
     <ng-container [ngSwitch]="selectedTab">
-      
+
       <ng-container *ngSwitchCase="'vehicles'">
         <app-vehicles></app-vehicles>
       </ng-container>
