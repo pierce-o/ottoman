@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,12 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   selectedTab: string = "vehicles";
+  selectedIndex: number;
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  goToAddition() {
+    this.router.navigate(['/add', this.selectedTab]);
+  }
 
 }

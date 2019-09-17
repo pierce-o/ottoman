@@ -1,5 +1,7 @@
 {
   "name": "ottoman",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -12,9 +12,13 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
+    path: 'add/:type',
+    loadChildren: () => import('./entry-addition/entry-addition.module').then( m => m.EntryAdditionPageModule )
+  }/*,
+  {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }
+  }*/
 ];
 
 @NgModule({

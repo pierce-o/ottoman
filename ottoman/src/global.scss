@@ -31,7 +31,26 @@ ion-title {
 
     --color: #2D78AB;
     font-family: 'DM Sans', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
 
+}
+
+ion-toolbar {
+    padding: 0 !important;
+}
+
+ion-back-button {
+    --background-color: #2D78AB;
+}
+
+.icon {
+    background-color: #2D78AB;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+    //clip-path: circle(35% at 50% 50%);
+    width: .5em;
+    height: .8em;
+    position: relative;
+    left: -80%;
 }

@@ -1,5 +1,17 @@
 $primary-color: #2D78AB;
 $disabled-color: #BBBBBB;
+$odd-color: #F8F8F8;
+
+.registration-entry {
+    
+    width: 100%;
+    height: 4.2em;
+
+}
+
+.registration-entry:nth-child(odd) {
+    background-color: $odd-color;
+}
 
 .error-message {
 

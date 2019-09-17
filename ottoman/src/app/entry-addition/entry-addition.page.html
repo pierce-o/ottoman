@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button><div class="back-button"><div class="inner"></div></div></ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      ottoman
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ng-container [ngSwitch]="type">
+
+    <app-vehicle *ngSwitchCase="'vehicles'"></app-vehicle>
+
+    <app-registration *ngSwitchCase="'registrations'"></app-registration>
+
+  </ng-container>
+  
+
+</ion-content>

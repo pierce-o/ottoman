@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleData } from '../../models/vehicleData';
+import { StorageManagerService } from '../storage-manager.service';
 
 @Component({
   selector: 'app-vehicles',
@@ -10,8 +11,16 @@ export class VehiclesComponent implements OnInit {
 
   vehicles: VehicleData[] = [];
 
-  constructor() { }
+  constructor(private storageManager: StorageManagerService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    //this.storageManager.getAllDisplayableVehicles().subscribe( data => {
+
+      
+
+    //});
+
+  }
 
 }

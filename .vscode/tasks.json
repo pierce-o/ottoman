@@ -1,0 +1,19 @@
+{
+    "version":"2.0.0",
+    "command": "ionic cordova build android",
+    "tasks":[
+        {
+            "type": "shell",
+            "label": "Ionic Build Android",
+            "command": "ionic cordova build android",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceRoot}/ottoman"
+            }
+            
+        }
+    ]
+}

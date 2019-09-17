@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegData } from '../../models/regData';
+import { StorageManagerService } from '../storage-manager.service';
 
 @Component({
   selector: 'app-registrations',
@@ -10,8 +11,16 @@ export class RegistrationsComponent implements OnInit {
 
   registrations: RegData[] = [];
 
-  constructor() { }
+  constructor( private storageManager: StorageManagerService ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    //this.storageManager.getAllDisplayableRegs().subscribe( data => {
+
+      
+
+    //});
+
+  }
 
 }

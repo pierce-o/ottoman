@@ -1,9 +1,9 @@
 <ion-header no-border>
-  <ion-toolbar>
+  <ion-toolbar mode="ios">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button><div class="icon"></div></ion-menu-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title class="ion-text-center">
       ottoman
     </ion-title>
   </ion-toolbar>
@@ -14,14 +14,14 @@
   <div class="main">
 
     <div class="buttons">
-      <div class="button" [ngClass]="selectedTab == 'vehicles' ? 'button-highlight' : ''" (click)="selectedTab = 'vehicles'"><h1>Vehicles</h1></div>
-      <div class="button" [ngClass]="selectedTab == 'registrations' ? 'button-highlight' : ''" (click)="selectedTab = 'registrations'"><h1>Registrations</h1></div>
+      <div class="button" [class.button-highlight]="selectedTab == 'vehicles'" (click)="selectedTab = 'vehicles'"><h1>Vehicles</h1></div>
+      <div class="button" [class.button-highlight]="selectedTab == 'registrations'" (click)="selectedTab = 'registrations'"><h1>Registrations</h1></div>
     </div>
 
     <div class="controls">
       <p class="delete" [ngClass]="selectedIndex > -1 ? '' : 'disabled'">DELETE</p>
       <p class="edit">EDIT</p>
-      <p class="add">ADD</p>
+      <p class="add" (click)="goToAddition()">ADD</p>
     </div>
 
     <ng-container [ngSwitch]="selectedTab">
