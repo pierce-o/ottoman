@@ -1,0 +1,78 @@
+$primary-color: #2D78AB;
+$disabled-color: #BBBBBB;
+
+ion-button {
+    --background: #2D78AB;
+    --background-activated: #3184bd;
+    --border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.user-control {
+
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+
+    border-bottom: 2px solid $primary-color;    
+
+    .cancel-disabled {
+        grid-column: 1;
+
+        padding-top: .2em;
+        padding-left: .4em;
+        color: $disabled-color;
+        font-size: .9em;
+        float: left;
+        text-align: left;
+
+    }
+
+    .title {
+        grid-column: 2;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    .save {
+        grid-column: 3;
+
+        padding-top: .2em;
+        padding-right: .4em;
+        color: $primary-color;
+        font-size: .9em;
+        float: right;
+        text-align: right;
+    }
+
+}
+
+.input {
+
+
+    width: 100%;
+    border-bottom: 2px solid #2D78AB;
+
+}
+
+.content {
+    color: #272727;
+    padding: 1em;
+
+    ion-label {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    ion-input {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+}

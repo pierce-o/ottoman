@@ -20,7 +20,7 @@ export class EntryAdditionPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.navCtrl.back({animated: false});
   }
 
 }

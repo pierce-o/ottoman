@@ -1,10 +1,10 @@
-ion-button {
+/*ion-button {
     padding-top: 4px;
     padding-bottom: 4px;
     --padding-start: 4px;
     --padding-end: 4px;
     min-height: 48px;
-}
+}*/
 
 .back-button {
 
@@ -30,7 +30,8 @@ ion-button {
         width: 60%;
         height: 60%;
         background-color: white;
-        clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+        //clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+        clip-path: polygon(70px 0px,30px 70px,202px 70px,202px 90px,30px 90px,70px 160px,45px 160px,0px 80px,45px 0px);
     }
 
 }
