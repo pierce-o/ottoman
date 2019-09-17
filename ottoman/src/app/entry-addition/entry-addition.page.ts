@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-entry-addition',
@@ -10,12 +11,16 @@ export class EntryAdditionPage implements OnInit {
 
   type: string = "";
 
-  constructor( private activeRoute: ActivatedRoute ) { }
+  constructor( private navCtrl: NavController, private activeRoute: ActivatedRoute ) { }
 
   ngOnInit() {
     this.activeRoute.paramMap.subscribe( map => {
       this.type = map.get('type');
     } );
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 
 }

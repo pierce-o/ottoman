@@ -1,7 +1,13 @@
 <ion-header no-border>
   <ion-toolbar mode="ios">
     <ion-buttons slot="start">
-      <ion-button><div class="back-button"><div class="inner"></div></div></ion-button>
+      <ion-button (click)="goBack()">
+
+        <div class="back-button">
+          <div class="inner"></div>
+        </div>
+
+      </ion-button>
     </ion-buttons>
     <ion-title class="ion-text-center">
       ottoman
