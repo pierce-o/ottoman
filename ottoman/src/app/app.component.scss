@@ -1,6 +1,7 @@
 .sameline-toolbar {
 
     ion-title {
+        padding: 0;
         -webkit-padding-start: .8em;
         font-size: 1.4em;
         font-weight: normal;
@@ -15,6 +16,7 @@
         background-color: #2D78AB;
         float: right;
         clip-path: circle(12px at 50% 50%);
+        margin-right: .2em;
     }
 
 }
@@ -25,7 +27,6 @@ ion-list {
     color: #363636;
 
     ion-label {
-
         font-family: 'DM Sans', sans-serif;
         display: block;
         padding-left: 1.8em;

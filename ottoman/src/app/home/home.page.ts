@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,31 @@ export class HomePage {
 
   additionOpen: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private menuCtrl: MenuController) {}
 
   goToAddition() {
     this.additionOpen = true;
+
+    this.changeMenuState(false);
+
     //this.router.navigate(['/add', this.selectedTab]);
+  }
+
+  changeMenuState(state: boolean): void {
+    this.menuCtrl.enable(state);
+  }
+
+  controlButton(): void {
+
+    if(this.additionOpen == false) {
+      this.menuCtrl.open();
+    }
+    else
+    {
+      this.menuCtrl.close();
+      this.changeMenuState(true);
+      this.additionOpen = false;
+    }
   }
 
 }
