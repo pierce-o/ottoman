@@ -48,10 +48,19 @@ ion-back-button {
     background-color: #2D78AB;
     border-bottom-right-radius: 12px;
     border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
     //clip-path: circle(35% at 50% 50%);
-    width: .5em;
+    width: .8em;
     height: .8em;
     position: relative;
     left: -80%;
     color: #272727;
+
+    transition: left .2s ease-in-out;
+
+}
+
+.icon-onscreen { 
+    left: 0;
 }
