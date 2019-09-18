@@ -9,6 +9,9 @@ import { HomePage } from './home.page';
 import { VehiclesComponent } from '../vehicles/vehicles.component';
 import { RegistrationsComponent } from '../registrations/registrations.component';
 
+import { VehicleComponent } from '../entry-addition/vehicle/vehicle.component';
+import { RegistrationComponent } from '../entry-addition/registrations/registration.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +27,9 @@ import { RegistrationsComponent } from '../registrations/registrations.component
   declarations: [
     HomePage,
     VehiclesComponent,
-    RegistrationsComponent
+    RegistrationsComponent,
+    VehicleComponent,
+    RegistrationComponent
   ]
 })
 export class HomePageModule {}

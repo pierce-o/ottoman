@@ -11,10 +11,13 @@ export class HomePage {
   selectedTab: string = "vehicles";
   selectedIndex: number;
 
+  additionOpen: boolean = false;
+
   constructor(private router: Router) {}
 
   goToAddition() {
-    this.router.navigate(['/add', this.selectedTab]);
+    this.additionOpen = true;
+    //this.router.navigate(['/add', this.selectedTab]);
   }
 
 }

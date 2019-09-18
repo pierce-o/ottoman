@@ -11,7 +11,7 @@
 
 <ion-content>
     
-  <div class="main">
+  <div class="main" *ngIf="additionOpen == false; else additionPage">
 
     <div class="buttons">
       <div class="button" [class.button-highlight]="selectedTab == 'vehicles'" (click)="selectedTab = 'vehicles'"><h1>Vehicles</h1></div>
@@ -35,8 +35,20 @@
       <div *ngSwitchDefault class="tab-error"> An error has occured. Please reload the app. </div>
 
     </ng-container>
-    
 
   </div>
+
+  <ng-template #additionPage>
+
+    <ng-container [ngSwitch]="selectedTab">
+
+      <app-vehicle *ngSwitchCase="'vehicles'"></app-vehicle>
+  
+      <app-registration *ngSwitchCase="'registrations'"></app-registration>
+  
+    </ng-container>      
+
+  </ng-template>
+  
 
 </ion-content>
