@@ -1,7 +1,11 @@
 <ion-header no-border>
   <ion-toolbar mode="ios">
     <ion-buttons slot="start" style="margin-left: -.4em;">
-      <ion-button (click)="controlButton()"><div  [ngClass]="additionOpen ? 'icon icon-onscreen' : 'icon'"></div></ion-button>
+      <ion-button (click)="controlButton()">
+        <div [ngClass]="additionOpen ? 'icon icon-onscreen' : 'icon'">
+          <ion-icon name="arrow-round-back" md="md-arrow-round-back"></ion-icon>
+        </div>
+      </ion-button>
     </ion-buttons>
     <ion-title class="ion-text-center">
       ottoman
