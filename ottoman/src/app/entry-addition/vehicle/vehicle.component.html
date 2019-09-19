@@ -68,7 +68,7 @@
 
       <ion-label>MOT History</ion-label>
 
-      <app-button-slider [firstValue]="'PASS'" [secondValue]="'FAIL'"></app-button-slider>
+      <app-button-slider [firstValue]="'PASS'" [secondValue]="'FAIL'" (valueChange)="motResultValue=$event"></app-button-slider>
 
       <ion-label>Additional Info</ion-label>
       <ion-textarea placeholder="General comments based on the test, e.g. advisories or reasons for a fail."></ion-textarea>
@@ -84,9 +84,11 @@
       <ion-label>MOT Entries</ion-label>
       <div class="mot-entry-display">
         <ion-list>
-          <ion-item *ngFor="let mot of motEntries">
-            <p class="mot-result">{{ mot.testResult }}</p>
-            <p class="mot-date">{{ mot.completedDate }}</p>
+          <ion-item *ngFor="let mot of motEntries; let i = index;" lines="none" (click)="selectedMotResult=i">
+            <div class="mot-entry" id="mot{{ i }}" [ngClass]="selectedMotResult == i ? 'selected' : ''">
+              <p class="mot-result">{{ mot.testResult }}</p>
+              <p class="mot-date">{{ mot.completedDate }}</p>
+            </div>
           </ion-item>
         </ion-list>
 

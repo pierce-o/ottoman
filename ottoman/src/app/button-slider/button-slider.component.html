@@ -1,6 +1,6 @@
 <div class="slider-container">
   <p>{{ firstValue }}</p>
-  <div class="button-frame" (click)="firstSelected = !firstSelected">
+  <div class="button-frame" (click)="toggle();">
     <div [ngClass]="firstSelected == true ? 'button' : 'button right-active'"></div>
   </div>
   <p>{{ secondValue }}</p>

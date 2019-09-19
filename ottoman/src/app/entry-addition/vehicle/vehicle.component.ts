@@ -17,6 +17,10 @@ export class VehicleComponent implements OnInit {
 
   isManualMode: boolean = false;
 
+  motResultValue: boolean = false;
+
+  selectedMotResult: number = -1;
+
   constructor(public loadingController: LoadingController) { }
 
   ngOnInit() {
@@ -25,6 +29,8 @@ export class VehicleComponent implements OnInit {
     mot.completedDate = "19th June 2019";
     mot.testResult = "FAILED";
 
+    this.motEntries.push(mot);
+    this.motEntries.push(mot);
     this.motEntries.push(mot);
 
   }
