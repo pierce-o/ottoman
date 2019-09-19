@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-slider',
@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonSliderComponent implements OnInit {
 
+  @Input() firstValue: string;
+  @Input() secondValue: string;
+
+  firstSelected: boolean = true;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

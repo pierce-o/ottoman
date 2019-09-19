@@ -85,9 +85,6 @@ ion-button {
     }
 
     .information {
-        min-width: max-content;
-        text-align: center;
-        overflow: visible;
         display: block;
         font-family: 'DM Sans', sans-serif;
         font-size: .85em;
@@ -126,6 +123,42 @@ ion-button {
             }
 
         }
+    }
+    .mot-entry-display {
+
+        display: grid;
+        grid-template-columns: 80% auto;
+
+        ion-list {
+            columns: 1;
+
+            ion-item {
+                display: flex;
+                .mot-result{
+                    flex: 1;
+                }
+                .mot-date {
+                    float: right;
+                }
+            }
+
+        }
+
+        .mot-controls {
+            columns: 2;
+            padding-left: .4em;
+            padding-right: .4em;
+
+            ion-button {
+
+            }
+
+        }
+
+    }
+
+    ion-footer {
+        margin-top: 1.2em;
     }
 
 }

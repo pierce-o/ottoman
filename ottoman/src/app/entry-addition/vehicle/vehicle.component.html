@@ -66,6 +66,37 @@
         <ion-select-option *ngFor="let colour of dvlaColours" value="{{ colour }}">{{ colour | titlecase }}</ion-select-option>
       </ion-select>
 
+      <ion-label>MOT History</ion-label>
+
+      <app-button-slider [firstValue]="'PASS'" [secondValue]="'FAIL'"></app-button-slider>
+
+      <ion-label>Additional Info</ion-label>
+      <ion-textarea placeholder="General comments based on the test, e.g. advisories or reasons for a fail."></ion-textarea>
+
+      <ion-label class="title">Mileage</ion-label>
+        <div class="input">
+          <ion-input type="number" placeholder="Mileage when MOT was taken"></ion-input>
+      </div>
+
+      <ion-label>Test Date</ion-label>
+      <ion-datetime pickerFormat="DD-MMMM-YYYY" displayFormat="DD MMMM YYYY" placeholder="Jan 1970"></ion-datetime>
+
+      <ion-label>MOT Entries</ion-label>
+      <div class="mot-entry-display">
+        <ion-list>
+          <ion-item *ngFor="let mot of motEntries">
+            <p class="mot-result">{{ mot.testResult }}</p>
+            <p class="mot-date">{{ mot.completedDate }}</p>
+          </ion-item>
+        </ion-list>
+
+        <div class="mot-controls">
+          <ion-button><ion-icon name="add"></ion-icon></ion-button>
+          <ion-button><ion-icon name="remove"></ion-icon></ion-button>
+        </div>
+
+      </div>
+
       <ion-footer>
         <div class="element-centre">
           <ion-button size="small" (click)="null">ADD VEHICLE</ion-button>

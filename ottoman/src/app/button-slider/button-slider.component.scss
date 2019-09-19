@@ -1,0 +1,43 @@
+.slider-container {
+
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+
+    p {
+        margin-left: .5em;
+        margin-right: .5em;
+        text-align: center;
+        position: relative;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1em;
+    }
+
+    .button-frame {
+
+        border-radius: 5px;
+        background-color: #BBBBBB;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 3em;
+        margin-right: 3em;
+        height: 55%;
+
+        .button {
+            border-radius: 5px;
+            background-color: #2D78AB;
+            width: 40%;
+            height: 100%;
+
+            box-shadow: 1px 2px 4px rbga(80, 80, 80, .12);
+
+            transition: transform .2s ease-in-out;
+        }
+
+        .right-active {
+            transform: translateX(150%);
+        }
+
+    }
+
+}

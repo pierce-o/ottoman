@@ -1,3 +1,7 @@
-<p>
-  button-slider works!
-</p>
+<div class="slider-container">
+  <p>{{ firstValue }}</p>
+  <div class="button-frame" (click)="firstSelected = !firstSelected">
+    <div [ngClass]="firstSelected == true ? 'button' : 'button right-active'"></div>
+  </div>
+  <p>{{ secondValue }}</p>
+</div>

@@ -11,6 +11,7 @@ import { RegistrationsComponent } from '../registrations/registrations.component
 
 import { VehicleComponent } from '../entry-addition/vehicle/vehicle.component';
 import { RegistrationComponent } from '../entry-addition/registrations/registration.component';
+import { ButtonSliderComponent } from '../button-slider/button-slider.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { RegistrationComponent } from '../entry-addition/registrations/registrat
     VehiclesComponent,
     RegistrationsComponent,
     VehicleComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ButtonSliderComponent
   ]
 })
 export class HomePageModule {}
