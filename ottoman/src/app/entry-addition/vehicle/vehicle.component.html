@@ -4,11 +4,66 @@
   <div class="save">SAVE</div>
 </div>
 
-<div class="content">
-  <ion-label>Enter your car's registration</ion-label>
+<div class="content" *ngIf="isManualMode == false; else manual">
+
+  <ion-label class="title">Enter your car's registration</ion-label>
   <div class="input">
     <ion-input placeholder="Your registrations"></ion-input>
   </div>
 
   <ion-button size="small" (click)="getDVLADetails()">GET DETAILS</ion-button>
+
+  <ion-label class="information" (click)="toggleManual()">Click <strong>here</strong> to enter your details manually.</ion-label>
+
 </div>
+
+<ng-template #manual>
+
+  <div class="content">
+
+      <ion-label class="title">Registration</ion-label>
+      <div class="input">
+        <ion-input placeholder="Your registrations"></ion-input>
+      </div>
+
+      <ion-label class="title">Make</ion-label>
+      <div class="input">
+        <ion-input placeholder="Your make"></ion-input>
+      </div>
+
+      <ion-label class="title">Model</ion-label>
+      <div class="input">
+        <ion-input placeholder="Your model"></ion-input>
+      </div>
+
+      <div class="sameline-input">
+        <ion-label class="title">Engine Size</ion-label>
+        <div class="input">
+          <ion-input type="number" placeholder="Your engine size"></ion-input>
+        </div>
+
+        <ion-label class="title">Mileage</ion-label>
+        <div class="input">
+          <ion-input type="number" placeholder="Your current mileage"></ion-input>
+        </div>
+      </div>
+    
+      <ion-label>Build Date</ion-label>
+      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970"></ion-datetime>
+
+      <ion-label>Registration Date</ion-label>
+      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970"></ion-datetime>
+
+      <ion-label>Fuel Type</ion-label>
+      <ion-select placeholder="Petrol" >
+        <ion-select-option *ngFor="let type of fuelTypes" value="{{ type }}">{{ type }}</ion-select-option>
+      </ion-select>
+
+      <ion-label>Colour</ion-label>
+      <ion-select placeholder="White" >
+        <ion-select-option *ngFor="let colour of dvlaColours" value="{{ colour }}">{{ colour | titlecase }}</ion-select-option>
+      </ion-select>
+
+    </div>
+
+</ng-template>

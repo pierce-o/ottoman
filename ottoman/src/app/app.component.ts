@@ -26,11 +26,7 @@ export class AppComponent {
     {
       title: 'Notifications',
       url: '/notifications',
-    },
-    {
-      title: 'Settings',
-      url: '/settins',
-    },
+    }
   ];
 
   constructor(

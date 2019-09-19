@@ -4,7 +4,9 @@
       <ion-header no-border>
         <ion-toolbar class="sameline-toolbar">
           <ion-title>Welcome, James!</ion-title>
-          <div (click)="menuClose()"></div>
+          <div (click)="menuClose()">
+            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+          </div>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -18,6 +20,9 @@
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
+      <ion-footer no-border>
+        <ion-label>Settings</ion-label>
+      </ion-footer>
     </ion-menu>
 
     <ion-router-outlet main></ion-router-outlet>

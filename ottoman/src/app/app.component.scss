@@ -11,6 +11,7 @@
     }
 
     div {
+        top: 0;
         width: 2em;
         height: 2em;
         background-color: #2D78AB;
@@ -18,21 +19,24 @@
         clip-path: circle(12px at 50% 50%);
         margin-top: 0;
         margin-right: .2em;
+
+        ion-icon {
+            width: 90%;
+            height: 90%;
+            padding: 5%;
+            transform: rotateZ(-45deg);
+            text-align: center;
+            color: white;
+        }
+
     }
 
 }
 
-ion-list {
-
-    padding-top: 1.5em;
-    color: #363636;
-
-    ion-label {
-        font-family: 'DM Sans', sans-serif;
-        display: block;
-        padding-left: 1.8em;
-        margin-bottom: 1.2em;
-        font-size: 1.2em;
-    }
-
+ion-label {
+    font-family: 'DM Sans', sans-serif;
+    display: block;
+    padding-left: 1.8em;
+    margin-bottom: 1.2em;
+    font-size: 1.2em;
 }

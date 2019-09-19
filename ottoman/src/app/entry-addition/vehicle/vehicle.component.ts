@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-vehicle',
@@ -7,6 +8,11 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./vehicle.component.scss'],
 })
 export class VehicleComponent implements OnInit {
+  
+  fuelTypes: string[] = ['Petrol', 'Diesel', 'Electric', 'LPG'];
+  dvlaColours: string[] = ['beige', 'black', 'blue', 'bronze', 'brown', 'buff', 'cream', 'gold', 'green', 'grey', 'ivory', 'maroon', 'orange', 'pink', 'purple', 'red', 'silver', 'turquoise', 'white', 'yellow'];
+
+  isManualMode: boolean = false;
 
   constructor(public loadingController: LoadingController) { }
 
@@ -26,4 +32,8 @@ export class VehicleComponent implements OnInit {
 
   }
 
+  toggleManual() {
+    this.isManualMode = !this.isManualMode;
+  }
+  
 }

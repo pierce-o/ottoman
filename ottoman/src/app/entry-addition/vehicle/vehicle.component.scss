@@ -67,12 +67,51 @@ ion-button {
         font-family: 'DM Sans', sans-serif;
         font-size: 1em;
         font-weight: bold;
+    } 
+
+    .title {
+        display: block;
     }
 
-    ion-input {
+    .information {
+        display: block;
         font-family: 'DM Sans', sans-serif;
-        font-size: 1em;
+        font-size: .85em;
+        color: $disabled-color;
         font-weight: normal;
+        padding-top: .2em;
+    }
+
+    .input {
+
+        margin-bottom: .4em;
+
+        ion-input {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1em;
+            font-weight: normal;
+        }
+    }
+   
+    .sameline-input {
+
+        display: grid;
+
+        .title {
+            grid-row: 1;
+        }
+
+        .input {
+
+            grid-row: 2;
+
+            margin-right: .3em;
+
+            ion-input {
+                flex: 1;
+            }
+
+        }
     }
 
 }
