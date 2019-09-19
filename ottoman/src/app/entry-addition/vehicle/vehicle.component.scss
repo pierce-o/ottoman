@@ -51,6 +51,17 @@ ion-button {
 
 }
 
+.element-centre {
+    display: grid;
+
+    grid-template-columns: auto min-content auto;
+
+    * {
+        grid-column: 2;    
+    }
+
+}
+
 .input {
 
 
@@ -74,6 +85,9 @@ ion-button {
     }
 
     .information {
+        min-width: max-content;
+        text-align: center;
+        overflow: visible;
         display: block;
         font-family: 'DM Sans', sans-serif;
         font-size: .85em;

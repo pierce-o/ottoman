@@ -11,8 +11,10 @@
     <ion-input placeholder="Your registrations"></ion-input>
   </div>
 
-  <ion-button size="small" (click)="getDVLADetails()">GET DETAILS</ion-button>
-
+  <div class="element-centre">
+    <ion-button size="small" (click)="getDVLADetails()">GET DETAILS</ion-button>
+  </div>
+    
   <ion-label class="information" (click)="toggleManual()">Click <strong>here</strong> to enter your details manually.</ion-label>
 
 </div>
@@ -63,6 +65,12 @@
       <ion-select placeholder="White" >
         <ion-select-option *ngFor="let colour of dvlaColours" value="{{ colour }}">{{ colour | titlecase }}</ion-select-option>
       </ion-select>
+
+      <ion-footer>
+        <div class="element-centre">
+          <ion-button size="small" (click)="null">ADD VEHICLE</ion-button>
+        </div>          
+      </ion-footer>
 
     </div>
 
