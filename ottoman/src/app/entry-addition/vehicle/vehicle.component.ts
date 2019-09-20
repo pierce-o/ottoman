@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { TitleCasePipe } from '@angular/common';
 import { MotData } from 'src/models/motData';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-vehicle',
@@ -17,14 +18,14 @@ export class VehicleComponent implements OnInit {
 
   isManualMode: boolean = false;
 
-  motResultValue: boolean = false;
+  tempMot: MotData = new MotData;
 
   selectedMotResult: number = -1;
 
   constructor(public loadingController: LoadingController) { }
 
   ngOnInit() {
-
+    
     let mot: MotData = new MotData;
     mot.completedDate = "19th June 2019";
     mot.testResult = "FAILED";
@@ -50,6 +51,31 @@ export class VehicleComponent implements OnInit {
 
   toggleManual() {
     this.isManualMode = !this.isManualMode;
+  }
+
+  addMotHistory(): void {
+    this.motEntries.push( this.tempMot );
+    this.tempMot = new MotData;
+  }
+
+  removeMotHistory(): void {
+    
+    // Check that the selected mot result is valid 
+    if(this.selectedMotResult < 0 || this.selectedMotResult > this.motEntries.length)
+      return;
+
+    // Create a temorary list to hold the modified list
+    let tempMotEntries: MotData[] = [];
+    
+    // Filter each of the mot entries and don't return the selected index
+    this.motEntries = this.motEntries.filter( (motEntry, index) => {
+      if(index !== this.selectedMotResult)
+        return motEntry;
+    });
+
+    // Reset the mot result
+    this.selectedMotResult = -1;
+
   }
   
 }

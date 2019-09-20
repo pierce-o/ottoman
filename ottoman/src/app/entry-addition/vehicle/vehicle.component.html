@@ -68,7 +68,7 @@
 
       <ion-label>MOT History</ion-label>
 
-      <app-button-slider [firstValue]="'PASS'" [secondValue]="'FAIL'" (valueChange)="motResultValue=$event"></app-button-slider>
+      <app-button-slider [firstValue]="'PASS'" [secondValue]="'FAIL'" (valueChange)="tempMot.testResult = ($event == true ? 'PASSED' : 'FAILED')"></app-button-slider>
 
       <ion-label>Additional Info</ion-label>
       <ion-textarea placeholder="General comments based on the test, e.g. advisories or reasons for a fail."></ion-textarea>
@@ -93,8 +93,8 @@
         </ion-list>
 
         <div class="mot-controls">
-          <div class="control"> <ion-icon name="add"></ion-icon></div>
-          <div class="control"> <ion-icon name="remove"></ion-icon></div>
+          <div class="control" (click)="addMotHistory()"><ion-icon name="add"></ion-icon></div>
+          <div class="control" (click)="removeMotHistory()"><ion-icon name="remove"></ion-icon></div>
         </div>
 
       </div>
