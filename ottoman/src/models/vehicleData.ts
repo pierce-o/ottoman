@@ -1,5 +1,7 @@
 export class VehicleData {
 
+    public storeV5: boolean;
+
     // All selected vehicle details from the DVLA API
     public taxDate: Date;
     public motDate: Date;

@@ -11,7 +11,10 @@ import { TouchSequence } from 'selenium-webdriver';
 })
 export class VehicleComponent implements OnInit {
   
-  fuelTypes: string[] = ['Petrol', 'Diesel', 'Electric', 'LPG'];
+  // All fuel types
+  fuelTypes: string[] = ['Petrol', 'Diesel', 'Electric', 'GAS/BI-FUEL'];
+
+  // All offical colours avaliable by the dvla
   dvlaColours: string[] = ['beige', 'black', 'blue', 'bronze', 'brown', 'buff', 'cream', 'gold', 'green', 'grey', 'ivory', 'maroon', 'orange', 'pink', 'purple', 'red', 'silver', 'turquoise', 'white', 'yellow'];
 
   motEntries: MotData[] = [];
@@ -22,10 +25,12 @@ export class VehicleComponent implements OnInit {
 
   selectedMotResult: number = -1;
 
+  storeV5: boolean = false;
+
   constructor(public loadingController: LoadingController) { }
 
   ngOnInit() {
-    
+
     let mot: MotData = new MotData;
     mot.completedDate = "19th June 2019";
     mot.testResult = "FAILED";
@@ -64,9 +69,6 @@ export class VehicleComponent implements OnInit {
     if(this.selectedMotResult < 0 || this.selectedMotResult > this.motEntries.length)
       return;
 
-    // Create a temorary list to hold the modified list
-    let tempMotEntries: MotData[] = [];
-    
     // Filter each of the mot entries and don't return the selected index
     this.motEntries = this.motEntries.filter( (motEntry, index) => {
       if(index !== this.selectedMotResult)

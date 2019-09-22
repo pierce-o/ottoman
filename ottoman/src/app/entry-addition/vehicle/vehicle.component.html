@@ -99,12 +99,21 @@
 
       </div>
 
-      <ion-footer no-border>
-        <div class="element-centre">
-          <ion-button size="small" (click)="null">ADD VEHICLE</ion-button>
-        </div>          
-      </ion-footer>
-
     </div>
 
 </ng-template>
+
+<ion-grid class="store-v5">
+  <ion-row>
+    <ion-col text-center>
+      <ion-checkbox [(ngModel)]="storeV5"></ion-checkbox>
+      <ion-label>Store information about your V5</ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-footer no-border>
+  <div class="element-centre">
+    <ion-button size="small" (click)="null">ADD VEHICLE</ion-button>
+  </div>          
+</ion-footer>.

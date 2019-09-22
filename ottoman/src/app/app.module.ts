@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CommonModule } from '@angular/common';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -18,7 +20,8 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
