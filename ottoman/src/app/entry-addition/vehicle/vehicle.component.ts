@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { TitleCasePipe } from '@angular/common';
 import { MotData } from 'src/models/motData';
-import { TouchSequence } from 'selenium-webdriver';
+import { VehicleData } from 'src/models/vehicleData';
 
 @Component({
   selector: 'app-vehicle',
@@ -25,7 +25,7 @@ export class VehicleComponent implements OnInit {
 
   selectedMotResult: number = -1;
 
-  storeV5: boolean = false;
+  tempVehicle: VehicleData = new VehicleData();
 
   constructor(public loadingController: LoadingController) { }
 

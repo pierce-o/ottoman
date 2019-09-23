@@ -11,15 +11,11 @@ export class VehiclesComponent implements OnInit {
 
   vehicles: VehicleData[] = [];
 
-  constructor(private storageManager: StorageManagerService) { }
+  constructor(private storageManager: StorageManagerService, private storage: StorageManagerService) { }
 
   ngOnInit() {
 
-    //this.storageManager.getAllDisplayableVehicles().subscribe( data => {
-
-      
-
-    //});
+    this.storage.getAllDisplayableVehicles().then( data => this.vehicles = data );
 
   }
 

@@ -1,8 +1,15 @@
+import { DvlaData } from './dvlaData';
+
 export class VehicleData {
+
+    public dlvaData: DvlaData = new DvlaData();
 
     public storeV5: boolean;
 
+    public currentMileage: string;
+
     // All selected vehicle details from the DVLA API
+    /*
     public taxDate: Date;
     public motDate: Date;
 
@@ -21,7 +28,7 @@ export class VehicleData {
     // Data that the user will  need to enter
     public model: string;
 
-    public reg: string;
+    public reg: string;*/
     
 
     constructor() {

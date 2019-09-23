@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
 import { VehicleData } from 'src/models/vehicleData';
 import { RegData } from 'src/models/regData';
@@ -15,12 +16,12 @@ export class StorageManagerService {
 
   constructor(private storage: Storage) { }
 
-  getAllDisplayableVehicles() : Observable<VehicleData[]> {
-    return JSON.parse(this.storage.getItem( keys.vehicles )); // Return the parsed json of the vehicles list
+  getAllDisplayableVehicles() : Promise<VehicleData[]> {
+    return this.storage.get( keys.vehicles ); // Return the parsed json of the vehicles list
   }
 
-  getAllDisplayableRegs() : Observable<RegData[]> {
-    return JSON.parse(this.storage.getItem( keys.regs )); // Return the parsed json of the vehicles list
+  getAllDisplayableRegs() : Promise<RegData[]> {
+    return this.storage.get( keys.regs ); // Return the parsed json of the vehicles list
   }
 
   registerVehicle(vehicle: VehicleData): Promise<any> {

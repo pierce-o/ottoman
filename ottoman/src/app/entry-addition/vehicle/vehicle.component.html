@@ -25,44 +25,44 @@
 
       <ion-label class="title">Registration</ion-label>
       <div class="input">
-        <ion-input placeholder="Your registrations"></ion-input>
+        <ion-input placeholder="Your registrations" [(ngModel)]="tempVehicle.dlvaData.registration"></ion-input>
       </div>
 
       <ion-label class="title">Make</ion-label>
       <div class="input">
-        <ion-input placeholder="Your make"></ion-input>
+        <ion-input placeholder="Your make" [(ngModel)]="tempVehicle.dlvaData.make"></ion-input>
       </div>
 
       <ion-label class="title">Model</ion-label>
       <div class="input">
-        <ion-input placeholder="Your model"></ion-input>
+        <ion-input placeholder="Your model" [(ngModel)]="tempVehicle.dlvaData.model"></ion-input>
       </div>
 
       <div class="sameline-input">
         <ion-label class="title">Engine Size</ion-label>
         <div class="input">
-          <ion-input type="number" placeholder="Your engine size"></ion-input>
+          <ion-input type="number" placeholder="Your engine size" [(ngModel)]="tempVehicle.dlvaData.engineSize"></ion-input>
         </div>
 
         <ion-label class="title">Mileage</ion-label>
         <div class="input">
-          <ion-input type="number" placeholder="Your current mileage"></ion-input>
+          <ion-input type="number" placeholder="Your current mileage" [(ngModel)]="tempVehicle.currentMileage"></ion-input>
         </div>
       </div>
     
       <ion-label>Build Date</ion-label>
-      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970"></ion-datetime>
+      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.dlvaData.manufactureDate"></ion-datetime>
 
       <ion-label>Registration Date</ion-label>
-      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970"></ion-datetime>
+      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.dlvaData.registrationDate"></ion-datetime>
 
       <ion-label>Fuel Type</ion-label>
-      <ion-select placeholder="Petrol" >
+      <ion-select placeholder="Petrol" [(ngModel)]="tempVehicle.dlvaData.fuelType">
         <ion-select-option *ngFor="let type of fuelTypes" value="{{ type }}">{{ type }}</ion-select-option>
       </ion-select>
 
       <ion-label>Colour</ion-label>
-      <ion-select placeholder="White" >
+      <ion-select placeholder="White" [(ngModel)]="tempVehicle.dlvaData.fuelType">
         <ion-select-option *ngFor="let colour of dvlaColours" value="{{ colour }}">{{ colour | titlecase }}</ion-select-option>
       </ion-select>
 
@@ -106,7 +106,7 @@
 <ion-grid class="store-v5">
   <ion-row>
     <ion-col text-center>
-      <ion-checkbox [(ngModel)]="storeV5"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="tempVehicle.storeV5"></ion-checkbox>
       <ion-label>Store information about your V5</ion-label>
     </ion-col>
   </ion-row>
