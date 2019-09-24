@@ -25,23 +25,23 @@
 
       <ion-label class="title">Registration</ion-label>
       <div class="input">
-        <ion-input placeholder="Your registrations" [(ngModel)]="tempVehicle.dlvaData.registration"></ion-input>
+        <ion-input placeholder="Your registrations" [(ngModel)]="tempVehicle.dvlaData.registration"></ion-input>
       </div>
 
       <ion-label class="title">Make</ion-label>
       <div class="input">
-        <ion-input placeholder="Your make" [(ngModel)]="tempVehicle.dlvaData.make"></ion-input>
+        <ion-input placeholder="Your make" [(ngModel)]="tempVehicle.dvlaData.make"></ion-input>
       </div>
 
       <ion-label class="title">Model</ion-label>
       <div class="input">
-        <ion-input placeholder="Your model" [(ngModel)]="tempVehicle.dlvaData.model"></ion-input>
+        <ion-input placeholder="Your model" [(ngModel)]="tempVehicle.dvlaData.model"></ion-input>
       </div>
 
       <div class="sameline-input">
         <ion-label class="title">Engine Size</ion-label>
         <div class="input">
-          <ion-input type="number" placeholder="Your engine size" [(ngModel)]="tempVehicle.dlvaData.engineSize"></ion-input>
+          <ion-input type="number" placeholder="Your engine size" [(ngModel)]="tempVehicle.dvlaData.engineSize"></ion-input>
         </div>
 
         <ion-label class="title">Mileage</ion-label>
@@ -51,18 +51,18 @@
       </div>
     
       <ion-label>Build Date</ion-label>
-      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.dlvaData.manufactureDate"></ion-datetime>
+      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.dvlaData.manufactureDate"></ion-datetime>
 
       <ion-label>Registration Date</ion-label>
-      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.dlvaData.registrationDate"></ion-datetime>
+      <ion-datetime pickerFormat="MMMM-YYYY" displayFormat="MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.dvlaData.registrationDate"></ion-datetime>
 
       <ion-label>Fuel Type</ion-label>
-      <ion-select placeholder="Petrol" [(ngModel)]="tempVehicle.dlvaData.fuelType">
+      <ion-select placeholder="Petrol" [(ngModel)]="tempVehicle.dvlaData.fuelType">
         <ion-select-option *ngFor="let type of fuelTypes" value="{{ type }}">{{ type }}</ion-select-option>
       </ion-select>
 
       <ion-label>Colour</ion-label>
-      <ion-select placeholder="White" [(ngModel)]="tempVehicle.dlvaData.fuelType">
+      <ion-select placeholder="White" [(ngModel)]="tempVehicle.dvlaData.primaryColour">
         <ion-select-option *ngFor="let colour of dvlaColours" value="{{ colour }}">{{ colour | titlecase }}</ion-select-option>
       </ion-select>
 
@@ -84,7 +84,7 @@
       <ion-label>MOT Entries</ion-label>
       <div class="mot-entry-display">
         <ion-list>
-          <ion-item *ngFor="let mot of motEntries; let i = index;" lines="none" (click)="selectedMotResult=i">
+          <ion-item *ngFor="let mot of tempVehicle.dvlaData.motTests; let i = index;" lines="none" (click)="selectedMotResult=i">
             <div class="mot-entry" id="mot{{ i }}" [ngClass]="selectedMotResult == i ? 'selected' : ''">
               <p class="mot-result">{{ mot.testResult }}</p>
               <p class="mot-date">{{ mot.completedDate }}</p>
@@ -114,6 +114,6 @@
 
 <ion-footer no-border>
   <div class="element-centre">
-    <ion-button size="small" (click)="null">ADD VEHICLE</ion-button>
+    <ion-button size="small" (click)="addVehicle()">ADD VEHICLE</ion-button>
   </div>          
 </ion-footer>.

@@ -12,6 +12,7 @@ import { RegistrationsComponent } from '../registrations/registrations.component
 import { VehicleComponent } from '../entry-addition/vehicle/vehicle.component';
 import { RegistrationComponent } from '../entry-addition/registrations/registration.component';
 import { ButtonSliderComponent } from '../button-slider/button-slider.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ButtonSliderComponent } from '../button-slider/button-slider.component'
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    PipesModule
   ],
   declarations: [
     HomePage,

@@ -15,7 +15,9 @@ import { CommonModule } from '@angular/common';
 import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,

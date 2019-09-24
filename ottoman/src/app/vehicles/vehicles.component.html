@@ -1,7 +1,25 @@
 <ng-container *ngIf="vehicles != null; else message">
-    <div *ngFor="let vehicle of vehicles">
+    <div class="vehicle-container">
+        <div *ngFor="let vehicle of vehicles" class="vehicle">
 
+            <div class="left">
+                <div class="checkbox"></div>
+            </div>
+
+            <div class="right">
+                <div class="top-bar">
+                    <h1>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</h1>
+                    <div class="bell-icon"></div>
+                </div>
+                <div class="middle-bar">
+                    <p>{{ vehicle.dvlaData.registrationDate | iondate: 'Y' }}</p>
+                    <p>{{ vehicle.currentMileage }}</p>
+                    <p>{{ vehicle.dvlaData.engineSize }} {{ vehicle.dvlaData.fuelType }}</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 </ng-container>
 
-<ng-template #message> <h1 class="error-message"> You don't have any vehicles currently saved. </h1> </ng-template>
+<ng-template #message> <h1 class="error-message" (click)="updateVehicles()"> You don't have any vehicles currently saved. </h1> </ng-template>

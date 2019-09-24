@@ -2,7 +2,7 @@ import { DvlaData } from './dvlaData';
 
 export class VehicleData {
 
-    public dlvaData: DvlaData = new DvlaData();
+    public dvlaData: DvlaData = new DvlaData();
 
     public storeV5: boolean;
 

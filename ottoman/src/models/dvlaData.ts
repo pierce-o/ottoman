@@ -13,6 +13,6 @@ export class DvlaData {
     public manufactureDate: string;
     public engineSize: string;
 
-    public motTests: MotData[];
+    public motTests: MotData[] = [];
 
 }

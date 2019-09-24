@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { TitleCasePipe } from '@angular/common';
 import { MotData } from 'src/models/motData';
 import { VehicleData } from 'src/models/vehicleData';
+import { StorageManagerService } from 'src/app/storage-manager.service';
 
 @Component({
   selector: 'app-vehicle',
@@ -17,8 +18,6 @@ export class VehicleComponent implements OnInit {
   // All offical colours avaliable by the dvla
   dvlaColours: string[] = ['beige', 'black', 'blue', 'bronze', 'brown', 'buff', 'cream', 'gold', 'green', 'grey', 'ivory', 'maroon', 'orange', 'pink', 'purple', 'red', 'silver', 'turquoise', 'white', 'yellow'];
 
-  motEntries: MotData[] = [];
-
   isManualMode: boolean = false;
 
   tempMot: MotData = new MotData;
@@ -27,17 +26,9 @@ export class VehicleComponent implements OnInit {
 
   tempVehicle: VehicleData = new VehicleData();
 
-  constructor(public loadingController: LoadingController) { }
+  constructor(public loadingController: LoadingController, private storage: StorageManagerService, private toastController: ToastController) { }
 
   ngOnInit() {
-
-    let mot: MotData = new MotData;
-    mot.completedDate = "19th June 2019";
-    mot.testResult = "FAILED";
-
-    this.motEntries.push(mot);
-    this.motEntries.push(mot);
-    this.motEntries.push(mot);
 
   }
 
@@ -59,18 +50,18 @@ export class VehicleComponent implements OnInit {
   }
 
   addMotHistory(): void {
-    this.motEntries.push( this.tempMot );
+    this.tempVehicle.dvlaData.motTests.push( this.tempMot );
     this.tempMot = new MotData;
   }
 
   removeMotHistory(): void {
     
     // Check that the selected mot result is valid 
-    if(this.selectedMotResult < 0 || this.selectedMotResult > this.motEntries.length)
+    if(this.selectedMotResult < 0 || this.selectedMotResult > this.tempVehicle.dvlaData.motTests.length)
       return;
 
     // Filter each of the mot entries and don't return the selected index
-    this.motEntries = this.motEntries.filter( (motEntry, index) => {
+    this.tempVehicle.dvlaData.motTests = this.tempVehicle.dvlaData.motTests.filter( (motEntry, index) => {
       if(index !== this.selectedMotResult)
         return motEntry;
     });
@@ -78,6 +69,17 @@ export class VehicleComponent implements OnInit {
     // Reset the mot result
     this.selectedMotResult = -1;
 
+  }
+
+  addVehicle(): void {
+    this.storage.registerVehicle( this.tempVehicle ).then( result => {
+      this.showToast("Added!");
+    });
+    this.tempVehicle = new VehicleData();
+  }
+
+  showToast(string: string) {
+    let toast = this.toastController.create( {message: string, duration: 1500} );
   }
   
 }

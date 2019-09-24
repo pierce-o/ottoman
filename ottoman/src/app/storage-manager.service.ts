@@ -24,6 +24,10 @@ export class StorageManagerService {
     return this.storage.get( keys.regs ); // Return the parsed json of the vehicles list
   }
 
+  clearAll(): Promise<any>  {
+    return this.storage.clear();
+  }
+
   registerVehicle(vehicle: VehicleData): Promise<any> {
     
     return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
