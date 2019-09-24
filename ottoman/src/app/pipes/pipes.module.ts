@@ -2,16 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { IondateformatPipe } from '../iondateformat.pipe'
+import { TothousandsPipe } from '../tothousands.pipe';
 
 @NgModule({
   declarations: [
-    IondateformatPipe
+    IondateformatPipe,
+    TothousandsPipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    IondateformatPipe
+    IondateformatPipe,
+    TothousandsPipe
   ]
 })
 export class PipesModule { }

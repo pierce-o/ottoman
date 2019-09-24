@@ -62,6 +62,18 @@ $disabled-color: #BBBBBB;
                 p {
                     font-size: .9em;
                     margin: 0;
+                    min-width: fit-content;
+                    text-align: center;
+                    padding-left: .4em;
+                    padding-right: .4em;
+
+                    flex: 1;
+                    
+                    &:nth-child(2) {
+                        border-right: 2px solid #B7B7B7;
+                        border-left: 2px solid #B7B7B7;
+                    }
+
                 }
 
             }

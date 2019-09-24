@@ -26,20 +26,19 @@ export class IondateformatPipe implements PipeTransform {
         break;
 
         case "M":
-            finalString = finalString.concat(data.month);
+          finalString = finalString.concat(data.month);
         break;
 
         case "D":
-            finalString = finalString.concat(data.day);
+          finalString = finalString.concat(data.day);
         break;
 
         case "T":
-            finalString = finalString.concat(data.time);
+          finalString = finalString.concat(data.time);
         break;
 
         default:
           break;
-
       }
     });
 
