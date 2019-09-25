@@ -1,6 +1,6 @@
 <ng-container *ngIf="vehicles != null; else message">
     <div class="vehicle-container">
-        <div *ngFor="let vehicle of vehicles" class="vehicle">
+        <div *ngFor="let vehicle of vehicles; let i = index;" class="vehicle">
 
             <div class="left">
                 <div class="checkbox"></div>
@@ -12,9 +12,26 @@
                     <div class="bell-icon"></div>
                 </div>
                 <div class="middle-bar">
-                    <p>{{ vehicle.dvlaData.registrationDate | iondate: 'Y' }}</p>
-                    <p>{{ vehicle.currentMileage | toThousands }}{{ vehicle.currentMileage > 999 ? 'k' : '' }}</p>
-                    <p>{{ vehicle.dvlaData.engineSize }} {{ vehicle.dvlaData.fuelType }}</p>
+                    <div class="details">
+                        <p>{{ vehicle.dvlaData.registrationDate | iondate: 'Y' }}</p>
+                        <p>{{ vehicle.currentMileage | toThousands }}{{ vehicle.currentMileage > 999 ? 'k' : '' }}</p>
+                        <p>{{ vehicle.dvlaData.engineSize }} {{ vehicle.dvlaData.fuelType }}</p>
+                    </div>
+                    <div class="requirement-labels">
+                        <p>MOT</p>
+                        <p>TAX</p>
+                        <p>SORN</p>
+                    </div>
+                </div>
+                <div class="bottom-bar">
+                    <div class="button-container">
+                        <div class="view-button" (click)="null">View Details</div>
+                    </div>
+                    <div class="requirements">
+                        <p [style.color]="checkDate(vehicle.dvlaData, 'mot')"> {{ vehicle.dvlaData.hasMot ? vehicle.dvlaData.motDueDate : 'No' }} </p>
+                        <p [style.color]="checkDate(vehicle.dvlaData, 'tax')"> {{ vehicle.dvlaData.hasTax ? vehicle.dvlaData.taxDueDate : 'No' }} </p>
+                        <p [style.color]="checkDate(vehicle.dvlaData, 'sorn')">{{ vehicle.dvlaData.isSORNd ? vehicle.dvlaData.sornDate : 'No'}}</p>
+                    </div>
                 </div>
             </div>
 

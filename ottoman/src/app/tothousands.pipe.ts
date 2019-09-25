@@ -11,7 +11,7 @@ export class TothousandsPipe implements PipeTransform {
     if(stringValue.length < 4) // Check if there is more than 3 digits
       return stringValue; // If not return the orignal string.
 
-    for(let i = stringValue.length; i > 0; i--) // Loop backwards as we need to group them into 3s in reverse order
+    for(let i = stringValue.length; i > 1; i--) // Loop backwards as we need to group them into 3s in reverse order
     {
       let truePosition = stringValue.length - i; // Get the true position of the current character
 
