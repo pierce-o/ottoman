@@ -43,7 +43,7 @@ $disabled-color: #BBBBBB;
 
         .right {
             flex: 1;
-            
+
             .top-bar {
                 h1 {
                     margin: .2em;
@@ -54,90 +54,102 @@ $disabled-color: #BBBBBB;
                 }
             }
 
-            .middle-bar {
-                display: flex;
-                width: 100%;
+            .vehicle-detials {
+                display: inline-block;
+            }
 
-                p {
-                    font-size: .9em;
-                    margin: 0;
-                    min-width: fit-content;
-                    text-align: center;
-                    padding-left: .4em;
-                    padding-right: .4em;
+            .gov-details {
+                display: inline-block;
+                float: right;
+                padding-right: .4aem;
+            }
 
-                    flex: 1;
-
-                }
-
-                .details {
+            .vehicle-detials, .gov-details {
+                .middle-bar {
                     display: flex;
-                    flex: 1;
+                    width: 100%;
 
                     p {
- 
+                        font-size: .9em;
+                        margin: 0;
+                        min-width: fit-content;
                         text-align: center;
+                        padding-left: .4em;
+                        padding-right: .4em;
 
-                        &:nth-child(2) {
-                            border-right: 2px solid #B7B7B7;
-                            border-left: 2px solid #B7B7B7;
+                        flex: 1;
+
+                    }
+
+                    .details {
+                        display: flex;
+                        flex: 1;
+
+                        p {
+    
+                            text-align: center;
+
+                            &:nth-child(2) {
+                                border-right: 2px solid #B7B7B7;
+                                border-left: 2px solid #B7B7B7;
+                            }
+
+                        }
+                    }
+
+                    .requirement-labels {
+                        display: flex;
+                        flex: 1;
+
+                        p {
+                            font-weight: bold;
                         }
 
                     }
-                }
-
-                .requirement-labels {
-                    display: flex;
-                    flex: 1;
-
-                    p {
-                        font-weight: bold;
-                    }
 
                 }
 
-            }
-
-            .bottom-bar {
-                display: flex;
-
-                .button-container {
-
-                    min-width: 50%;
-                    flex: 1;
-                    display: flex;
-                    .view-button {
-
-                        min-width: fit-content;
-                        margin-left: auto;
-                        margin-right: auto;
-                        margin-top: .25em;
-
-                        border-radius: 6px;
-
-                        width: 90%;
-                        height: 80%;
-                        background-color: #2D78AB;
-
-                        text-align: center;
-                        color: white;
-
-                    }
-                }
-
-                .requirements {
-                    flex: 1;
+                .bottom-bar {
                     display: flex;
 
-                    p {
-                        text-align: center;
-                        min-width: max-content;
+                    .button-container {
+
+                        min-width: 50%;
                         flex: 1;
-                        margin: 0;
+                        display: flex;
+                        .view-button {
+
+                            min-width: fit-content;
+                            margin-left: auto;
+                            margin-right: auto;
+                            margin-top: .25em;
+
+                            border-radius: 6px;
+
+                            width: 90%;
+                            height: 80%;
+                            background-color: #2D78AB;
+
+                            text-align: center;
+                            color: white;
+
+                        }
+                    }
+
+                    .requirements {
+                        flex: 1;
+                        display: flex;
+
+                        p {
+                            text-align: center;
+                            min-width: max-content;
+                            flex: 1;
+                            margin: 0;
+                        }
+
                     }
 
                 }
-
             }
 
         }
