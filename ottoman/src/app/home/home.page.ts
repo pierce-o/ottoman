@@ -10,7 +10,7 @@ import { MenuController } from '@ionic/angular';
 export class HomePage {
 
   selectedTab: string = "vehicles";
-  selectedIndex: number;
+  selectedIndex: number = -1;
 
   additionOpen: boolean = false;
 

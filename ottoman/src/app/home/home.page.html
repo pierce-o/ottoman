@@ -31,7 +31,7 @@
     <ng-container [ngSwitch]="selectedTab">
 
       <ng-container *ngSwitchCase="'vehicles'">
-        <app-vehicles></app-vehicles>
+        <app-vehicles (valueChange)="selectedIndex = $event"></app-vehicles>
       </ng-container>
       <ng-container *ngSwitchCase="'registrations'"> 
         <app-registrations></app-registrations>

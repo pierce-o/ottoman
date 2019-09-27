@@ -8,6 +8,14 @@ export class VehicleData {
 
     public currentMileage: string;
 
+    public hasMot: boolean;
+    public hasTax: boolean;
+    public isSORNd: boolean;
+
+    public motDueDate: string;
+    public taxDueDate: string;
+    public sornDate: string;
+
     // All selected vehicle details from the DVLA API
     /*
     public taxDate: Date;

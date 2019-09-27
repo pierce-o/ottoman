@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { VehicleData } from '../../models/vehicleData';
 import { StorageManagerService } from '../storage-manager.service';
 import { DvlaData } from 'src/models/dvlaData';
@@ -10,7 +10,10 @@ import { DvlaData } from 'src/models/dvlaData';
 })
 export class VehiclesComponent implements OnInit {
 
+  @Output() valueChange = new EventEmitter<number>();
+
   vehicles: VehicleData[] = [];
+  selectedIndex: number = -1;
 
   constructor(private storage: StorageManagerService) { }
 
@@ -72,6 +75,17 @@ export class VehiclesComponent implements OnInit {
         break;
     }
 
+  }
+
+  selectIndex(value: number) {
+
+    // Check if the index is already selected
+    if(this.selectedIndex == value)
+      this.selectedIndex = -1; // It it is then set the value to -1, deselecting the item
+    else
+      this.selectedIndex = value; // Else set it to this item
+
+    this.valueChange.emit( this.selectedIndex ); // Emit the value
   }
 
 }

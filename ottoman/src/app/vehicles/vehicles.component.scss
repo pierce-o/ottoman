@@ -38,7 +38,24 @@ $disabled-color: #BBBBBB;
                 height: .8em;
                 border-radius: 2px;
                 background-color: #DEDEDE;
+
+                * {
+                    display: none;
+                }
+
             }
+
+            .ticked {
+                * {
+                    display: block;
+                    text-align: center;
+                    width: inherit;
+                    height: inherit;
+                    padding: 0;
+                    position: absolute;
+                }
+            }
+
         }
 
         .right {
