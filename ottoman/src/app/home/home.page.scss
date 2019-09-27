@@ -40,14 +40,15 @@ $controls-padding: .5em .8em .5em .8em;
     font-weight: bold;
     font-size: .8em;
     display: flex;
-    
-    .disabled {
-      color: $disabled-color;
-    }
 
     .delete {
       margin: 0;
       padding: $controls-padding;
+      color: #D62626;
+    }
+
+    .disabled {
+      color: $disabled-color;
     }
 
     .edit {
