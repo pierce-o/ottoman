@@ -1,6 +1,6 @@
 <ng-container *ngIf="vehicles != null; else message">
     <div class="vehicle-container">
-        <div *ngFor="let vehicle of vehicles; let i = index;" class="vehicle" (click)="viewEntry(i)">
+        <div *ngFor="let vehicle of vehicles; let i = index;" class="vehicle">
 
             <div class="left">
                 <div [ngClass]="selectedIndex == i ? 'checkbox ticked' : 'checkbox'" (click)="selectIndex(i)">
@@ -8,7 +8,7 @@
                 </div>
             </div>
 
-            <div class="right">
+            <div class="right" (click)="viewEntry(i)">
                 <div class="top-bar">
                     <h1>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</h1>
                     <div class="bell-icon"></div>

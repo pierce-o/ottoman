@@ -18,8 +18,8 @@
   <div class="main" *ngIf="additionOpen == false; else additionPage">
 
     <div class="buttons">
-      <div class="button" [class.button-highlight]="selectedTab == 'vehicles'" (click)="selectedTab = 'vehicles'"><h1>Vehicles</h1></div>
-      <div class="button" [class.button-highlight]="selectedTab == 'registrations'" (click)="selectedTab = 'registrations'"><h1>Registrations</h1></div>
+      <div class="button" [class.button-highlight]="selectedTab == 'vehicles'" (click)="selectedTab = 'vehicles'; selectedIndex = -1"><h1>Vehicles</h1></div>
+      <div class="button" [class.button-highlight]="selectedTab == 'registrations'" (click)="selectedTab = 'registrations'; selectedIndex = -1"><h1>Registrations</h1></div>
     </div>
 
     <div class="controls">
