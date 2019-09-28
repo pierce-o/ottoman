@@ -2,6 +2,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { VehicleData } from '../../models/vehicleData';
 import { StorageManagerService } from '../storage-manager.service';
 import { DvlaData } from 'src/models/dvlaData';
+import { NavController } from '@ionic/angular';
+import { ViewPage } from '../view/view.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicles',
@@ -15,7 +18,7 @@ export class VehiclesComponent implements OnInit {
   vehicles: VehicleData[] = [];
   selectedIndex: number = -1;
 
-  constructor(private storage: StorageManagerService) { }
+  constructor(private storage: StorageManagerService, private navCtrl: NavController, private router: Router) { }
 
   ngOnInit() {
 
@@ -86,6 +89,12 @@ export class VehiclesComponent implements OnInit {
       this.selectedIndex = value; // Else set it to this item
 
     this.valueChange.emit( this.selectedIndex ); // Emit the value
+  }
+
+  viewEntry(index: number): void {
+
+    this.router.navigate( ['/view', index, 'vehicle'] );
+
   }
 
 }

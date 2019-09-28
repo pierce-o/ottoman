@@ -1,6 +1,6 @@
 <ng-container *ngIf="vehicles != null; else message">
     <div class="vehicle-container">
-        <div *ngFor="let vehicle of vehicles; let i = index;" class="vehicle">
+        <div *ngFor="let vehicle of vehicles; let i = index;" class="vehicle" (click)="viewEntry(i)">
 
             <div class="left">
                 <div [ngClass]="selectedIndex == i ? 'checkbox ticked' : 'checkbox'" (click)="selectIndex(i)">
