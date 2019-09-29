@@ -1,6 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>view</ion-title>
+<ion-header no-border>
+  <ion-toolbar no-border text-center>
+    <div slot="start" (click)="goBack();">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon> 
+    </div>
+
+    <ion-title> {{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+
+    <p slot="end" >EDIT</p>
   </ion-toolbar>
 </ion-header>
 

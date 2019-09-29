@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
 import { VehicleData } from 'src/models/vehicleData';
 import { RegData } from 'src/models/regData';
+import { AngularDelegate } from '@ionic/angular';
 
 const keys = {
   vehicles: 'vehicles',
@@ -40,6 +41,19 @@ export class StorageManagerService {
       }
     });
     
+  }
+
+  getVehicleById(index: number): Promise<any> {
+    return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
+      if(vehicles) {
+        if(index >= 0 && index < vehicles.length)
+          return vehicles[index];
+        else
+          return null;
+      } 
+      else
+        return null;
+    });
   }
 
 }

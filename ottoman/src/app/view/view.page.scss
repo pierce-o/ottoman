@@ -1,0 +1,41 @@
+ion-toolbar {
+    display: flex;
+
+    div {
+        top: 0;
+        width: 2em;
+        height: 2em;
+        background-color: #2D78AB;
+        clip-path: circle(12px at 50% 50%);
+        margin-top: 0;
+        margin-left: .4em;
+
+        ion-icon {
+            width: 90%;
+            height: 90%;
+            padding: 5%;
+            transform: rotateZ(-45deg);
+            text-align: center;
+            color: white;
+        }
+
+    }
+
+    ion-title {
+        padding: 0;
+        -webkit-padding-start: .8em;
+        --color: #2D78AB;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    p {
+        color: #2D78AB;
+        font-family: "DM Sans", sans-serif;
+        font-size: .8em;
+        font-weight: bold;
+        margin-right: .4em;
+    }
+
+}
