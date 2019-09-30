@@ -4,13 +4,28 @@
       <ion-icon ios="ios-add" md="md-add"></ion-icon> 
     </div>
 
-    <ion-title> {{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+    <ng-container *ngIf="selectedMot != -1; else mot">
+      <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+    </ng-container>
 
+    <ng-template #mot>
+      <ion-title>MOT Result</ion-title>
+    </ng-template>
+     
     <p slot="end" >EDIT</p>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ng-container *ngIf="selectedMot == -1; else motview">
+
+  </ng-container>
+  
+  <ng-template #motview>
+    <app-mot-view [index]="selectedMot" [vehicleData]="vehicle"></app-mot-view>
+  </ng-template>
+  
 
 </ion-content>

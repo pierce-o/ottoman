@@ -85,13 +85,12 @@ $disabled-color: #BBBBBB;
             }
 
             .vehicle-detials {
-                display: inline-block;
+                flex: 1;
             }
 
             .gov-details {
-                display: inline-block;
-                float: right;
-                padding-right: .4aem;
+
+                padding-right: .4em;
             }
 
             .vehicle-detials, .gov-details {

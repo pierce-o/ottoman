@@ -1,15 +1,16 @@
 ion-toolbar {
     display: flex;
 
+    --padding-start: .6em;
+    --padding-end: .6em;
+
     div {
         top: 0;
         width: 2em;
         height: 2em;
         background-color: #2D78AB;
         clip-path: circle(12px at 50% 50%);
-        margin-top: 0;
-        margin-left: .4em;
-
+        
         ion-icon {
             width: 90%;
             height: 90%;
@@ -23,7 +24,6 @@ ion-toolbar {
 
     ion-title {
         padding: 0;
-        -webkit-padding-start: .8em;
         --color: #2D78AB;
         font-family: "DM Sans", sans-serif;
         font-size: 1.8em;

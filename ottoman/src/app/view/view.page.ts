@@ -13,6 +13,7 @@ export class ViewPage implements OnInit {
 
   index: number = -1;
   type: string = null;
+  selectedMot: number = 1;
 
   vehicle: VehicleData = new VehicleData();
 
