@@ -4,6 +4,7 @@ import { TitleCasePipe } from '@angular/common';
 import { MotData } from 'src/models/motData';
 import { VehicleData } from 'src/models/vehicleData';
 import { StorageManagerService } from 'src/app/storage-manager.service';
+import { MotDataComments } from 'src/models/motDataComments';
 
 @Component({
   selector: 'app-vehicle',
@@ -23,8 +24,12 @@ export class VehicleComponent implements OnInit {
   isManualMode: boolean = false;
 
   tempMot: MotData = new MotData;
+  tempMotComment = new MotDataComments();
+
+  comments: MotDataComments[] = [];
 
   selectedMotResult: number = -1;
+  selectedComment: number = -1;
 
   tempVehicle: VehicleData = new VehicleData();
 
@@ -52,8 +57,10 @@ export class VehicleComponent implements OnInit {
   }
 
   addMotHistory(): void {
+    this.tempMot.rfrAndComments = this.comments;
     this.tempVehicle.dvlaData.motTests.push( this.tempMot );
     this.tempMot = new MotData;
+    this.comments = [];
   }
 
   removeMotHistory(): void {
@@ -82,6 +89,15 @@ export class VehicleComponent implements OnInit {
 
   showToast(string: string) {
     let toast = this.toastController.create( {message: string, duration: 1500} );
+  }
+
+  addMotComment(): void {
+    this.comments.push( this.tempMotComment );
+  }
+
+  removeMotComment(): void {
+    if(this.selectedComment != -1)
+      this.comments = this.comments.filter( (x, index) => index != this.selectedComment );
   }
   
 }

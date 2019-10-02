@@ -124,6 +124,35 @@ ion-button {
 
         }
     }
+
+    .mot-defect-controls {
+        display: flex;
+        text-align: center;
+        align-items: center; /* align vertical */
+
+        color: white;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+
+        height: 2em;
+
+        .add {
+            flex: 1;
+            margin-right: .6em;
+            background-color: $primary-color;
+            border-radius: 6px;
+        }
+
+        .delete {
+            flex: 1;
+            margin-left: .6em;
+            background-color: $primary-color;
+            border-radius: 6px;
+        }
+
+    }
+
     .mot-entry-display {
 
         margin-top: .5em;
