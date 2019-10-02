@@ -56,4 +56,23 @@ export class StorageManagerService {
     });
   }
 
+  removeVehicle(itemIndex: number): Promise<any> {
+
+    return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
+
+      if(itemIndex > -1 && itemIndex <= vehicles.length){
+        
+        let filtered = vehicles.filter( (vehicle, index) => {
+          if(index != itemIndex)
+            return vehicle;
+        });
+
+        return this.storage.set( keys.vehicles, filtered );
+
+      }
+
+    });
+
+  }
+
 }

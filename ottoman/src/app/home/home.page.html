@@ -23,7 +23,7 @@
     </div>
 
     <div class="controls">
-      <p class="delete" [ngClass]="selectedIndex > -1 ? 'enabled' : 'disabled'">DELETE</p>
+      <p class="delete" [ngClass]="selectedIndex > -1 ? 'enabled' : 'disabled'" (click)="deleteEntry()">DELETE</p>
       <p class="edit">EDIT</p>
       <p class="add" (click)="goToAddition()">ADD</p>
     </div>

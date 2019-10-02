@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, AlertController } from '@ionic/angular';
+import { StorageManagerService } from '../storage-manager.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomePage {
 
   additionOpen: boolean = false;
 
-  constructor(private router: Router, private menuCtrl: MenuController) {}
+  constructor(private router: Router, private menuCtrl: MenuController, private storage: StorageManagerService, private alertCtrl: AlertController) {}
 
   goToAddition() {
     this.additionOpen = true;
@@ -38,6 +39,39 @@ export class HomePage {
       this.menuCtrl.close();
       this.changeMenuState(true);
       this.additionOpen = false;
+    }
+  }
+
+  deleteEntry(): void {
+
+    switch(this.selectedTab)
+    {
+      case 'vehicles':
+
+        let opts = {
+          header: 'Are you sure you want to delete this vehicle?',
+          message: 'Deleting this will delete all data related to this vehicle.',
+          buttons: [
+            {
+              text: 'Okay',
+              handler: () => {
+                this.storage.removeVehicle(this.selectedIndex);
+              }
+            },
+            {
+              text: 'Cancel',
+              role: 'cancel'
+            }
+          ]
+        };
+
+        this.alertCtrl.create( opts ).then( alert => alert.present() );
+
+        break;
+
+      default: 
+        break;
+
     }
   }
 

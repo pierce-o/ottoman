@@ -27,7 +27,7 @@ export class VehiclesComponent implements OnInit {
   }
 
   updateVehicles() {
-    this.storage.getAllDisplayableVehicles().then( data => {this.vehicles = data; console.log(this.vehicles);});
+    this.storage.getAllDisplayableVehicles().then( data => this.vehicles = data );
   }
 
   dateToColour(date) {
