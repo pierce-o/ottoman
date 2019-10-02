@@ -75,11 +75,16 @@
 
       <ion-label class="title">Mileage</ion-label>
         <div class="input">
-          <ion-input type="number" placeholder="Mileage when MOT was taken"></ion-input>
+          <ion-input type="number" placeholder="Mileage when MOT was taken"  [(ngModel)]="tempMot.odometerValue"></ion-input>
       </div>
 
       <ion-label>Test Date</ion-label>
-      <ion-datetime pickerFormat="DD-MMMM-YYYY" displayFormat="DD MMMM YYYY" placeholder="Jan 1970"></ion-datetime>
+      <ion-datetime pickerFormat="DD-MMMM-YYYY" displayFormat="DD MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempMot.completedDate"></ion-datetime>
+
+      <ion-label>Type</ion-label>
+      <ion-select placeholder="Dangerous" >
+        <ion-select-option *ngFor="let type of motTypes" value="{{ type }}">{{ type }}</ion-select-option>
+      </ion-select>
 
       <ion-label>MOT Entries</ion-label>
       <div class="mot-entry-display">

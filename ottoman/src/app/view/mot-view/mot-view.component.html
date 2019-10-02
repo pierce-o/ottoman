@@ -1,15 +1,49 @@
 <div class="main" *ngIf="motData != null">
 
-  <div class="result">{{ motData.testResult }}</div>
+  <div class="result"><p>{{ motData.testResult }}</p></div>
   <div class="mot-data">
-    <p>{{ motData.expiryDate }}</p>
-    <p>{{ motData.odometerValue}} {{ motData.odometerUnit }}</p>
+    <p>{{ motData.expiryDate }}June 12th 2018</p>
+    <p>{{ motData.odometerValue}} {{ motData.odometerUnit }}200,000k miles</p>
   </div>
 
-  <!--<ul>
-    <li *ngFor="">
+  <ion-label>Dangerous Defects ({{ dangerous.length }})</ion-label>
+  <ng-container *ngIf="(dangerous == null || dangerous.length < 1); else dangerousList">
+    <p class="empty-message">No dangerous defects.</p>
+  </ng-container>
+  <ng-template #dangerousList>
+    <ul>
+      <li *ngFor="let comments of dangerous"> <p>comments.text</p> </li>
+    </ul>
+  </ng-template>
 
-    </li>
-  </li>-->
+  <ion-label>Major Defects ({{ major.length }})</ion-label>
+  <ng-container *ngIf="(major == null || major.length < 1); else majorList">
+    <p class="empty-message">No major defects.</p>
+  </ng-container>
+  <ng-template #majorList>
+    <ul>
+      <li *ngFor="let comments of major"> <p>comments.text</p> </li>
+    </ul>
+  </ng-template>
+
+  <ion-label>Minor Defects ({{ minor.length }})</ion-label>
+  <ng-container *ngIf="(minor == null || minor.length < 1); else minorList">
+    <p class="empty-message">No minor defects.</p>
+  </ng-container>
+  <ng-template #minorList>
+    <ul>
+      <li *ngFor="let comments of minor"> <p>comments.text</p> </li>
+    </ul>
+  </ng-template>
+
+  <ion-label>Advisories ({{ advisory.length }})</ion-label>
+  <ng-container *ngIf="(advisory == null || advisory.length < 1); else advisoryList">
+    <p class="empty-message">No advisories.</p>
+  </ng-container>
+  <ng-template #advisoryList>
+    <ul>
+      <li *ngFor="let comments of advisory"> <p>comments.text</p> </li>
+    </ul>
+  </ng-template>
 
 </div>

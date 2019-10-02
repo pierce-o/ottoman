@@ -13,7 +13,7 @@ export class ViewPage implements OnInit {
 
   index: number = -1;
   type: string = null;
-  selectedMot: number = 1;
+  selectedMot: number = 0;
 
   vehicle: VehicleData = new VehicleData();
 
@@ -25,7 +25,9 @@ export class ViewPage implements OnInit {
       this.type = map.get('type');
     } );
 
-    this.storage.getVehicleById( this.index ).then( vehicle => this.vehicle = vehicle );
+    this.storage.getVehicleById( this.index ).then( vehicle => {
+      this.vehicle = vehicle;
+    } );
 
   }
 

@@ -18,6 +18,8 @@ export class VehicleComponent implements OnInit {
   // All offical colours avaliable by the dvla
   dvlaColours: string[] = ['beige', 'black', 'blue', 'bronze', 'brown', 'buff', 'cream', 'gold', 'green', 'grey', 'ivory', 'maroon', 'orange', 'pink', 'purple', 'red', 'silver', 'turquoise', 'white', 'yellow'];
 
+  motTypes: string[] = ['Dangerous', 'Fail', 'Minor', 'Advisory'];
+
   isManualMode: boolean = false;
 
   tempMot: MotData = new MotData;

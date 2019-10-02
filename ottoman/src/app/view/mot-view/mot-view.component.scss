@@ -1,0 +1,65 @@
+
+.main {
+
+    p {
+        color: #272727;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+
+    .empty-message {
+        font-size: 1em;
+        font-weight: 500;
+        padding-left: 2em;
+        margin-bottom: .6em;
+    }
+
+    .mot-data {
+        display: flex;
+        padding-left: .4em;
+        padding-right: .4em;
+        margin-bottom: 1em;
+        p {
+            text-align: center;
+            flex: 1;
+            font-size: 1.2em;
+        }
+    }    
+
+    ion-label {
+        color: #272727;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        padding-left: .8em;
+        padding-bottom: .3em;
+    }
+
+    .result {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mot-data {
+
+        display: flex;
+
+        p {
+            flex: 1;
+        }
+
+    }
+
+    ul {
+        li {
+
+            &:nth-child(odd) {
+                background-color: #F8F8F8;
+            }
+
+        }
+    }
+}

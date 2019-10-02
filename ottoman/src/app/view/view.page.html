@@ -1,10 +1,10 @@
 <ion-header no-border>
-  <ion-toolbar no-border text-center>
+  <ion-toolbar no-border class="ion-text-center">
     <div slot="start" (click)="goBack();">
       <ion-icon ios="ios-add" md="md-add"></ion-icon> 
     </div>
 
-    <ng-container *ngIf="selectedMot != -1; else mot">
+    <ng-container *ngIf="selectedMot < 0; else mot">
       <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
     </ng-container>
 

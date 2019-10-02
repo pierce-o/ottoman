@@ -46,7 +46,7 @@ export class StorageManagerService {
   getVehicleById(index: number): Promise<any> {
     return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
       if(vehicles) {
-        if(index >= 0 && index < vehicles.length)
+        if(index > -1 && index <= vehicles.length)
           return vehicles[index];
         else
           return null;
