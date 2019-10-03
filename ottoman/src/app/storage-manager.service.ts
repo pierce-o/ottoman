@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
 import { VehicleData } from 'src/models/vehicleData';
@@ -15,7 +15,13 @@ const keys = {
 })
 export class StorageManagerService {
 
+  vehiclesObserable: EventEmitter<VehicleData[]> = new EventEmitter<VehicleData[]>();
+
   constructor(private storage: Storage) { }
+
+  updateVehicles() {
+    this.getAllDisplayableVehicles().then( data => this.vehiclesObserable.emit( data ) );
+  }
 
   getAllDisplayableVehicles() : Promise<VehicleData[]> {
     return this.storage.get( keys.vehicles ); // Return the parsed json of the vehicles list

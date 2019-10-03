@@ -22,12 +22,10 @@ export class VehiclesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.updateVehicles();
+    this.storage.vehiclesObserable.subscribe( data => this.vehicles = data );
 
-  }
+    this.storage.updateVehicles();
 
-  updateVehicles() {
-    this.storage.getAllDisplayableVehicles().then( data => this.vehicles = data );
   }
 
   dateToColour(date) {

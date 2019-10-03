@@ -55,7 +55,10 @@ export class HomePage {
             {
               text: 'Okay',
               handler: () => {
-                this.storage.removeVehicle(this.selectedIndex);
+                this.storage.removeVehicle(this.selectedIndex).then( data => {
+                  this.storage.updateVehicles();
+                  this.selectedIndex = -1;
+                });
               }
             },
             {
