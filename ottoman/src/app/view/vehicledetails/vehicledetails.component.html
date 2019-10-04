@@ -25,4 +25,49 @@
     </div>
   </div>
 
+  <div class="split-container">
+      <div class="left">
+        <div class="single-line">
+          <p>Tax</p>
+          <p>{{ displayDate(vehicleData.taxDueDate) }}</p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="single-line">
+          <p>MOT</p>
+          <p>{{ displayDate(vehicleData.motDueDate) }}</p>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<div class="previous-mot">
+
+  <h1>MOT History</h1>
+
+  <ul>
+    <li *ngFor="let motData of vehicleData.dvlaData.motTests;">
+
+      <div class="left">
+        <div class="top">
+          <p class="mot-result"> {{ motData.testResult }} </p>
+          <p *ngFor="let issue of generateIssueList(motData)" class="issue">{{ issue.count }} {{ issue.displayText }}</p>
+        </div> 
+      </div>
+
+      <div class="right">
+        <p class="date"> {{ displayDate(motData.completedDate) }} </p>
+        <p class="mileage"> {{ motData.odometerValue | toThousands }}k </p>
+        <div class="spacer"></div>
+        <p class="view-more">View More</p>
+      </div>
+
+    </li>
+  </ul>
+
+  <div class="view-all">
+    <p>View All</p>
+  </div>
+
 </div>

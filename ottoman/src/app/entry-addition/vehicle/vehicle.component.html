@@ -87,6 +87,10 @@
       <ion-textarea placeholder="General comments based on the test, e.g. advisories or reasons for a fail." [(ngModel)]="tempMotComment.text"></ion-textarea>
 
       <ion-label>MOT Defects</ion-label>
+      <div class="mot-defect-controls">
+        <div class="add" (click)="addMotComment()">ADD</div>
+        <div class="delete" (click)="removeMotComment()">DELETE</div>
+      </div>
       <ion-list>
         <ng-container *ngIf="comments.length > 0; else errorMessage">
           <ion-item *ngFor="let comment of comments; let i = index;" lines="none" (click)="selectedComment=i">
@@ -104,11 +108,6 @@
         
 
       </ion-list>
-
-      <div class="mot-defect-controls">
-        <div class="add" (click)="addMotComment()">ADD</div>
-        <div class="delete" (click)="removeMotComment()">DELETE</div>
-      </div>
 
       <ion-label>MOT Entries</ion-label>
       <div class="mot-entry-display">

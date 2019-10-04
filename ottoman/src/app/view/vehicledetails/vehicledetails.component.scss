@@ -13,6 +13,9 @@
             padding-bottom: .3em;
             margin: 0;
             flex: 1; 
+            &:nth-child(1) {
+                font-weight: 500;
+            }
             &:nth-child(2) {
                 float: right;
                 flex: 0;
@@ -46,4 +49,86 @@
             }
         }
     }
+}
+
+.previous-mot {
+
+    h1 {
+        margin: 0.2em .3em 0;
+    }
+
+    ul  {
+
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {   
+
+            &:nth-child(even) {
+                background-color: #F8F8F8;
+            }
+
+            display: flex;
+            height: 5em;
+            padding: .3em 1em .3em .4em; 
+
+            .left {
+                flex: 1;
+
+                .top {
+                    height: 1.6em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: baseline;
+                    p { vertical-align: middle; margin: 0; }
+                    .mot-result{
+                        margin-right: .5em;
+                        font-weight: 500;
+                    }
+                    .issue {
+                        font-size: .85em;
+                    }
+                }
+
+            }
+
+            .right {
+                display: flex;
+                text-align: right;
+                flex-flow: column;
+
+                p { margin: 0; padding: 0; }
+
+                .date {
+                    font-size: .85em;
+                }
+
+                .mileage {
+                    font-size: .6em;
+                }
+
+                .spacer {
+                    flex-direction: column;
+                    flex: 1;
+                }
+
+                .view-more {
+                    font-size: .7em;
+                }
+
+            }
+        }
+
+    }
+
+    .view-all {
+        font-size: .8em;
+        margin: 0;
+
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }

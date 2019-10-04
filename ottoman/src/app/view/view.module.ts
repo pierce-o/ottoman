@@ -9,6 +9,8 @@ import { ViewPage } from './view.page';
 import { MotViewComponent  } from './mot-view/mot-view.component';
 import { VehicledetailsComponent  } from './vehicledetails/vehicledetails.component';
 
+import { PipesModule } from '../pipes/pipes.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -21,7 +23,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    PipesModule
   ],
   declarations: [ViewPage, MotViewComponent, VehicledetailsComponent]
 })

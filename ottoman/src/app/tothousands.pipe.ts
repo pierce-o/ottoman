@@ -15,7 +15,7 @@ export class TothousandsPipe implements PipeTransform {
     {
       let truePosition = stringValue.length - i; // Get the true position of the current character
 
-      if(!(i % 3)) // Check if the there isn't a remainder of 3
+      if(!(i % 3) && truePosition > 0) // Check if the there isn't a remainder of 3
         stringValue = stringValue.substr(0, truePosition) + "," + stringValue.substr(truePosition, stringValue.length); // Break the string up and insert a comma
     } 
 

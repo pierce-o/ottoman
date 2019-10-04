@@ -93,6 +93,7 @@ export class VehicleComponent implements OnInit {
 
   addMotComment(): void {
     this.comments.push( this.tempMotComment );
+    this.tempMotComment = new MotDataComments();
   }
 
   removeMotComment(): void {
