@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ViewPage } from './view.page';
 import { MotViewComponent  } from './mot-view/mot-view.component';
+import { VehicledetailsComponent  } from './vehicledetails/vehicledetails.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ViewPage, MotViewComponent]
+  declarations: [ViewPage, MotViewComponent, VehicledetailsComponent]
 })
 export class ViewPageModule {}

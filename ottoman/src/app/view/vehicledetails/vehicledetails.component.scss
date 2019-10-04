@@ -1,0 +1,49 @@
+.vehicle-details {
+
+    background-color: #F8F8F8;
+
+    padding-left: 1em;
+    padding-right: 1em;
+
+    .single-line {
+        display: flex;
+        align-items: center;
+        p { 
+            padding-top: .3em;
+            padding-bottom: .3em;
+            margin: 0;
+            flex: 1; 
+            &:nth-child(2) {
+                float: right;
+                flex: 0;
+                min-width: fit-content;
+            }
+        }
+    }
+
+    .split-container {
+        display: flex;
+        .left {
+            flex: 1;
+            .single-line {
+                p {
+                    &:nth-child(2) {
+                        padding-right: .5em;
+                    }
+                }
+            }
+        }
+
+        .right {
+            flex: 1;
+
+            .single-line {
+                p {
+                    &:nth-child(1) {
+                        padding-left: .5em;
+                    }
+                }
+            }
+        }
+    }
+}

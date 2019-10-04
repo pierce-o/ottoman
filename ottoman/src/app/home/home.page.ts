@@ -44,18 +44,24 @@ export class HomePage {
 
   deleteEntry(): void {
 
+    // Make sure that a vehicle has been selected
+    if(this.selectedIndex == -1)
+      return;
+    
     switch(this.selectedTab)
     {
-      case 'vehicles':
+      case 'vehicles': // Carry out the deletion for the vehicles
 
+        // Create an options value
         let opts = {
           header: 'Are you sure you want to delete this vehicle?',
           message: 'Deleting this will delete all data related to this vehicle.',
           buttons: [
             {
               text: 'Okay',
-              handler: () => {
+              handler: () => { // If okay is selected then remove the vehicle
                 this.storage.removeVehicle(this.selectedIndex).then( data => {
+                  // Once the vehicle has been removed then update the vehicles list and remove the selected index
                   this.storage.updateVehicles();
                   this.selectedIndex = -1;
                 });

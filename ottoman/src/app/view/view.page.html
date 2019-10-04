@@ -1,4 +1,4 @@
-<ion-header no-border>
+<ion-header no-border [ngClass]="(selectedMot < 0) ? 'underlined-title' : ''">
   <ion-toolbar no-border class="ion-text-center">
     <div slot="start" (click)="goBack();">
       <ion-icon ios="ios-add" md="md-add"></ion-icon> 
@@ -12,7 +12,7 @@
       <ion-title>MOT Result</ion-title>
     </ng-template>
      
-    <p slot="end" >EDIT</p>
+    <p slot="end">EDIT</p>
 
   </ion-toolbar>
 </ion-header>
@@ -20,12 +20,11 @@
 <ion-content>
 
   <ng-container *ngIf="selectedMot == -1; else motview">
-
+    <app-vehicle-details [vehicleData]="vehicle"></app-vehicle-details>
   </ng-container>
   
   <ng-template #motview>
     <app-mot-view [index]="selectedMot" [vehicleData]="vehicle"></app-mot-view>
   </ng-template>
-  
 
 </ion-content>
