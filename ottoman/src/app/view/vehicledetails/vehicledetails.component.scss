@@ -1,3 +1,7 @@
+p {
+    font-family: "DM Sans", sans-serif;
+}
+
 .vehicle-details {
 
     background-color: #F8F8F8;
@@ -83,10 +87,13 @@
                     justify-content: baseline;
                     p { vertical-align: middle; margin: 0; font-weight: 500; }
                     .mot-result{
+                        font-weight: bold;
                         margin-right: .5em;
                     }
                     .issue {
+                        text-align: center;
                         font-size: .85em;
+                        padding-right: .2em;
                     }
                 }
 
@@ -104,7 +111,7 @@
                 }
 
                 .mileage {
-                    font-size: .6em;
+                    font-size: .65em;
                 }
 
                 .spacer {

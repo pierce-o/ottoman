@@ -24,7 +24,7 @@
                         </div>
                         <div class="bottom-bar">
                             <div class="button-container">
-                                <div class="view-button" (click)="null">View Details</div>
+                                <div class="view-button">View Details</div>
                             </div>
                         </div>
                     </div>
@@ -38,9 +38,9 @@
                         </div>
                         <div class="bottom-bar">
                             <div class="requirements">
-                                <p [style.color]="checkDate(vehicle.dvlaData, 'mot')"> {{ vehicle.hasMot ? vehicle.motDueDate : 'No' }} </p>
-                                <p [style.color]="checkDate(vehicle.dvlaData, 'tax')"> {{ vehicle.hasTax ? vehicle.taxDueDate : 'No' }} </p>
-                                <p [style.color]="checkDate(vehicle.dvlaData, 'sorn')">{{ vehicle.isSORNd ? vehicle.sornDate : 'No'}}</p>
+                                <p [ngClass]="vehicle.hasMot ? 'is-date' : ''" [style.color]="checkDate(vehicle.dvlaData, 'mot')"> {{ vehicle.hasMot ? getDate(vehicle.motDueDate) : 'No' }} </p>
+                                <p [ngClass]="vehicle.hasTax ? 'is-date' : ''" [style.color]="checkDate(vehicle.dvlaData, 'tax')"> {{ vehicle.hasTax ? getDate(vehicle.taxDueDate) : 'No' }} </p>
+                                <p [ngClass]="vehicle.isSORNd ? 'is-date' : ''" [style.color]="checkDate(vehicle.dvlaData, 'sorn')">{{ vehicle.isSORNd ? getDate(vehicle.sornDate) : 'No'}}</p>
                             </div>
                         </div>
                     </div>

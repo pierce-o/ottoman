@@ -95,4 +95,9 @@ export class VehiclesComponent implements OnInit {
 
   }
 
+  getDate(dateString: string) {
+    let date = new Date( dateString );
+    return date.toLocaleDateString();
+  }
+
 }

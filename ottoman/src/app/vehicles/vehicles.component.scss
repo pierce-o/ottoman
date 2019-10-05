@@ -89,7 +89,6 @@ $disabled-color: #BBBBBB;
             }
 
             .gov-details {
-
                 padding-right: .4em;
             }
 
@@ -111,17 +110,15 @@ $disabled-color: #BBBBBB;
                     }
 
                     .details {
-                        display: flex;
-                        flex: 1;
+                        margin-left: auto;
+                        margin-right: auto;
 
                         p {
-    
+                            display: inline;
                             text-align: center;
 
-                            &:nth-child(2) {
-                                border-right: 2px solid #B7B7B7;
-                                border-left: 2px solid #B7B7B7;
-                            }
+                            &:nth-child(1) { text-align: left; }
+                            &:nth-child(3) { text-align: right; }
 
                         }
                     }
@@ -143,7 +140,7 @@ $disabled-color: #BBBBBB;
 
                     .button-container {
 
-                        min-width: 50%;
+                       // min-width: 50%;
                         flex: 1;
                         display: flex;
                         .view-button {
@@ -174,6 +171,10 @@ $disabled-color: #BBBBBB;
                             min-width: max-content;
                             flex: 1;
                             margin: 0;
+                        }
+
+                        .is-date {
+                            font-size: .7em;
                         }
 
                     }
