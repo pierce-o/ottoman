@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, IonDatetime } from '@ionic/angular';
 import { TitleCasePipe } from '@angular/common';
 import { MotData } from 'src/models/motData';
 import { VehicleData } from 'src/models/vehicleData';
@@ -33,9 +33,19 @@ export class VehicleComponent implements OnInit {
 
   tempVehicle: VehicleData = new VehicleData();
 
+  todaysDate: string;
+  nextYear: string;
+
   constructor(public loadingController: LoadingController, private storage: StorageManagerService, private toastController: ToastController) { }
 
   ngOnInit() {
+
+    let currentDate = new Date();
+
+    let month = currentDate.getMonth();
+    let date = currentDate.getDate();
+
+    this.nextYear = (currentDate.getFullYear() + 1) + '-' + (month < 10 ? '0' : '') + month + '-' + (date < 10 ? '0' : '') + date;
 
   }
 

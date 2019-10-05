@@ -8,9 +8,9 @@ export class VehicleData {
 
     public currentMileage: string;
 
-    public hasMot: boolean;
-    public hasTax: boolean;
-    public isSORNd: boolean;
+    public hasMot: boolean = false;
+    public hasTax: boolean = false;
+    public isSORNd: boolean = false;
 
     public motDueDate: string;
     public taxDueDate: string;

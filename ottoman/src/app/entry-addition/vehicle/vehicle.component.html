@@ -66,6 +66,36 @@
         <ion-select-option *ngFor="let colour of dvlaColours" value="{{ colour }}">{{ colour | titlecase }}</ion-select-option>
       </ion-select>
 
+    <ion-grid>
+      <ion-row>
+        <ion-checkbox [(ngModel)]="tempVehicle.hasMot"></ion-checkbox>
+        <ion-label>Does it have MOT?</ion-label>     
+      </ion-row>
+      <ion-row *ngIf="tempVehicle.hasMot">
+        <ion-datetime max="{{nextYear}}" pickerFormat="DD-MMMM-YYYY" displayFormat="DD MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.motDueDate"></ion-datetime>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-checkbox [(ngModel)]="tempVehicle.hasTax"></ion-checkbox>
+        <ion-label>Does it have TAX?</ion-label>
+      </ion-row>
+      <ion-row *ngIf="tempVehicle.hasTax">
+        <ion-datetime max="{{nextYear}}" pickerFormat="DD-MMMM-YYYY" displayFormat="DD MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.taxDueDate"></ion-datetime>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-checkbox [(ngModel)]="tempVehicle.isSORNd"></ion-checkbox>
+        <ion-label>Is it SORN'd?</ion-label>
+      </ion-row>
+      <ion-row *ngIf="tempVehicle.isSORNd">
+        <ion-datetime max="{{nextYear}}" pickerFormat="DD-MMMM-YYYY" displayFormat="DD MMMM YYYY" placeholder="Jan 1970" [(ngModel)]="tempVehicle.sornDate"></ion-datetime>
+      </ion-row>
+    </ion-grid>
+
       <ion-label>MOT History</ion-label>
 
       <app-button-slider [firstValue]="'PASS'" [secondValue]="'FAIL'" (valueChange)="tempMot.testResult = ($event == true ? 'PASSED' : 'FAILED')"></app-button-slider>
