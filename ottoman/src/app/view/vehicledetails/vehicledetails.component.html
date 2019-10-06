@@ -26,19 +26,34 @@
   </div>
 
   <div class="split-container">
-      <div class="left">
-        <div class="single-line">
-          <p>Tax</p>
-          <p>{{ displayDate(vehicleData.taxDueDate) }}</p>
-        </div>
-      </div>
-      <div class="right">
-        <div class="single-line">
-          <p>MOT</p>
-          <p>{{ displayDate(vehicleData.motDueDate) }}</p>
-        </div>
+    <div class="left">
+      <div class="single-line">
+        <p>Tax</p>
+        <p>{{ vehicleData.hasTax ? displayDate(vehicleData.taxDueDate) : 'None' }}</p>
       </div>
     </div>
+    <div class="right">
+      <div class="single-line">
+        <p>MOT</p>
+        <p>{{ vehicleData.hasMot ? displayDate(vehicleData.motDueDate) : 'None' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="split-container">
+    <div class="left">
+      <div class="single-line">
+        <p>Primary Colour</p>
+        <p>{{ vehicleData.dvlaData.primaryColour }}</p>
+      </div>
+    </div>
+    <div class="right">
+      <div class="single-line">
+        <p>Mileage</p>
+        <p>{{ vehicleData.currentMileage | toThousands }}k</p>
+      </div>
+    </div>
+  </div>
 
 </div>
 
@@ -46,31 +61,42 @@
 
   <h1>MOT History</h1>
 
-  <ul>
-    <li *ngFor="let motData of vehicleData.dvlaData.motTests;">
+  <ng-container *ngIf="vehicleData.dvlaData.motTests.length > 0; else noneMessage">
+  
+    <ul>
+      <li *ngFor="let motData of vehicleData.dvlaData.motTests;">
 
-      <div class="left">
-        <div class="top">
-          <p class="mot-result"> {{ motData.testResult }} </p>
-          <p *ngFor="let issue of generateIssueList(motData)" class="issue">{{ issue.count }} {{ issue.displayText }}</p>
-        </div> 
-        <div class="bottom">
-          <p *ngFor="let issue of generateIssueList(motData)" >{{ issue.text }}</p>
+        <div class="left">
+          <div class="top">
+            <p class="mot-result"> {{ motData.testResult }} </p>
+            <p *ngFor="let issue of generateIssueList(motData)" class="issue">{{ issue.count }} {{ issue.displayText }}</p>
+          </div> 
+          <div class="bottom">
+            <p *ngFor="let issue of generateIssueList(motData)" >{{ issue.text }}</p>
+          </div>
         </div>
-      </div>
 
-      <div class="right">
-        <p class="date"> {{ displayDate(motData.completedDate) }} </p>
-        <p class="mileage"> {{ motData.odometerValue | toThousands }}k </p>
-        <div class="spacer"></div>
-        <p class="view-more">View More</p>
-      </div>
+        <div class="right">
+          <p class="date"> {{ displayDate(motData.completedDate) }} </p>
+          <p class="mileage"> {{ motData.odometerValue | toThousands }}k </p>
+          <div class="spacer"></div>
+          <p class="view-more">View More</p>
+        </div>
 
-    </li>
-  </ul>
+      </li>
+    </ul>
 
-  <div class="view-all">
-    <p>View All</p>
-  </div>
+    <div class="view-all">
+      <p>View All</p>
+    </div>
+
+  </ng-container>
+
+  <ng-template #noneMessage>
+    <div class="view-all">
+      <p>No MOT history has been found.</p>
+    </div>
+  </ng-template>
+  
 
 </div>

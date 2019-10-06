@@ -17,7 +17,13 @@ export class VehicledetailsComponent implements OnInit {
   ngOnInit() {}
 
   displayDate(date: string): string {
-    return (new Date(date)).toDateString();
+    let options = {
+      weekday: 'short', // Thursday will be Thur
+      year: '2-digit', // Year will be the last two digits
+      month: 'short', // March will be MAr
+      day: 'numeric' // Day will be a singile number
+    };
+    return (new Date(date)).toLocaleDateString("en-GB", options);
   }
 
   generateIssueList(motData: MotData): Issue[] {

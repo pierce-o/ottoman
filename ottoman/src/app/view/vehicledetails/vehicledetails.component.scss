@@ -100,10 +100,13 @@ p {
                 .bottom {
                     overflow: hidden;
                     height: 3em;
-                    width: 80%;
+                    width: 78%;
                     position: absolute;
                     left: .4em;
                     p {
+                        padding: 0;
+                        padding-bottom: .2em;
+                        margin: 0;
                         font-size: .8em;
                     }
                 }
