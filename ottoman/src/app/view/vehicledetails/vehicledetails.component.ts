@@ -32,7 +32,8 @@ export class VehicledetailsComponent implements OnInit {
         let tempIssue: Issue = {
           count: 1,
           displayText: comment.type,
-          type: comment.type
+          type: comment.type,
+          text: comment.text
         };
 
         tempIssueList.push(tempIssue);

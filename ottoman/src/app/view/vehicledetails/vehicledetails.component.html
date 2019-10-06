@@ -54,6 +54,9 @@
           <p class="mot-result"> {{ motData.testResult }} </p>
           <p *ngFor="let issue of generateIssueList(motData)" class="issue">{{ issue.count }} {{ issue.displayText }}</p>
         </div> 
+        <div class="bottom">
+          <p *ngFor="let issue of generateIssueList(motData)" >{{ issue.text }}</p>
+        </div>
       </div>
 
       <div class="right">

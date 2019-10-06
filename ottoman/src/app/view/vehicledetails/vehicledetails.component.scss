@@ -97,12 +97,24 @@ p {
                     }
                 }
 
+                .bottom {
+                    overflow: hidden;
+                    height: 3em;
+                    width: 80%;
+                    position: absolute;
+                    left: .4em;
+                    p {
+                        font-size: .8em;
+                    }
+                }
+
             }
 
             .right {
                 display: flex;
                 text-align: right;
                 flex-flow: column;
+                padding-left: .2em;
 
                 p { margin: 0; padding: 0; }
 
@@ -111,7 +123,7 @@ p {
                 }
 
                 .mileage {
-                    font-size: .65em;
+                    font-size: .7em;
                 }
 
                 .spacer {
@@ -120,7 +132,7 @@ p {
                 }
 
                 .view-more {
-                    font-size: .7em;
+                    font-size: .75em;
                 }
 
             }

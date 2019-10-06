@@ -6,4 +6,6 @@ export interface Issue {
 
     type: string;
 
+    text: string;
+
 }
