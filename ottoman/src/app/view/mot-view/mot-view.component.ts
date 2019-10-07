@@ -36,19 +36,23 @@ export class MotViewComponent implements OnInit {
 
       if(this.motData.rfrAndComments != undefined){
         this.dangerous = this.motData.rfrAndComments.filter( x => {
-          return (x.type == "FAIL" || x.dangerous == true);
+          console.log(x.type);
+          return (x.type.toLowerCase() == "dangerous" || x.dangerous == true);
         });
 
         this.major = this.motData.rfrAndComments.filter( x => {
-          return (x.type == "MAJOR");
+          console.log(x.type);
+          return (x.type.toLowerCase() == "fail");
         });
 
         this.minor = this.motData.rfrAndComments.filter( x => {
-          return (x.type == "MINOR");
+          console.log(x.type);
+          return (x.type.toLowerCase() == "minor");
         });
 
         this.advisory = this.motData.rfrAndComments.filter( x => {
-          return (x.type == "ADVISORY");
+          console.log(x.type);
+          return (x.type.toLowerCase() == "advisory");
         });
       }
       

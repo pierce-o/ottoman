@@ -12,7 +12,7 @@
   </ng-container>
   <ng-template #dangerousList>
     <ul>
-      <li *ngFor="let comments of dangerous"> <p>comments.text</p> </li>
+      <li *ngFor="let comments of dangerous"> <div class="bullet-point">•</div><p>{{ comments.text }}</p> </li>
     </ul>
   </ng-template>
 
@@ -22,7 +22,7 @@
   </ng-container>
   <ng-template #majorList>
     <ul>
-      <li *ngFor="let comments of major"> <p>comments.text</p> </li>
+      <li *ngFor="let comments of major"> <div class="bullet-point">•</div><p>{{ comments.text }}</p> </li>
     </ul>
   </ng-template>
 
@@ -32,7 +32,7 @@
   </ng-container>
   <ng-template #minorList>
     <ul>
-      <li *ngFor="let comments of minor"> <p>comments.text</p> </li>
+      <li *ngFor="let comments of minor"> <div class="bullet-point">•</div><p>{{ comments.text }}</p> </li>
     </ul>
   </ng-template>
 
@@ -42,7 +42,7 @@
   </ng-container>
   <ng-template #advisoryList>
     <ul>
-      <li *ngFor="let comments of advisory"> <p>comments.text</p> </li>
+      <li *ngFor="let comments of advisory"> <div class="bullet-point">•</div><p>{{ comments.text }}</p> </li>
     </ul>
   </ng-template>
 

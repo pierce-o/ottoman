@@ -8,18 +8,18 @@
                 </div>
             </div>
 
-            <div class="right" (click)="viewEntry(i)">
+            <div class="right">
                 <div class="top-bar">
                     <h1>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</h1>
                     <div class="bell-icon"><ion-icon name="notifications-outline"></ion-icon></div>
                 </div>
                 <div style="display: flex">
-                    <div class="vehicle-detials">
+                    <div class="vehicle-detials" (click)="viewEntry(i)">
                         <div class="middle-bar">
                             <div class="details">
                                 <p>{{ vehicle.dvlaData.registrationDate | iondate: 'Y' }}</p>
                                 <p>{{ vehicle.currentMileage | toThousands }}{{ (vehicle.currentMileage > 999 && vehicle.currentMileage < 1000000) ? 'k' : '' }}</p>
-                                <p>{{ vehicle.dvlaData.engineSize }} {{ vehicle.dvlaData.fuelType }}</p>
+                                <p>{{ vehicle.dvlaData.engineSize | floatDisplay }} {{ vehicle.dvlaData.fuelType }}</p>
                             </div>
                         </div>
                         <div class="bottom-bar">

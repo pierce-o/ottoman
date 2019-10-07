@@ -35,18 +35,18 @@ export class VehiclesComponent implements OnInit {
       date.setDate( (date.getDate() - 1 ) );
 
       if(date.getTime() < now) // One day remaining
-        return 'red';
+        return '#D62626';
       else {
         date.setDate( (date.getDate() - 7 ) );
 
         if(date.getTime() < now) // One week remaining
-          return 'orange';
+          return '#cf7b21';
         else
         {
           date.setMonth( (date.getMonth() - 1 ) );
 
           if(date.getTime() < now) // One month remaining
-            return 'yellow';
+            return '#d6c84d';
           else
               return 'black';
         }

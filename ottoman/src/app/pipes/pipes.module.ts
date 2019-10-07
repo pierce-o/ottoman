@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { IondateformatPipe } from '../iondateformat.pipe'
 import { TothousandsPipe } from '../tothousands.pipe';
 import { FormatDatePipe } from '../format-date.pipe'
+import { FloatDisplayPipe } from '../float-display.pipe';
 
 @NgModule({
   declarations: [
     IondateformatPipe,
     TothousandsPipe,
-    FormatDatePipe
+    FormatDatePipe,
+    FloatDisplayPipe
   ],
   imports: [
     CommonModule
@@ -17,7 +19,8 @@ import { FormatDatePipe } from '../format-date.pipe'
   exports: [
     IondateformatPipe,
     TothousandsPipe,
-    FormatDatePipe
+    FormatDatePipe,
+    FloatDisplayPipe
   ]
 })
 export class PipesModule { }
