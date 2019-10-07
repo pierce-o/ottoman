@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-view',
@@ -16,6 +17,8 @@ export class ViewPage implements OnInit {
   selectedMot: number = -1;
 
   vehicle: VehicleData = new VehicleData();
+
+  motEventEmitter: EventEmitter<number>;
 
   constructor( private navCtrl: NavController, private activeRoute: ActivatedRoute, private storage: StorageManagerService ) { }
 

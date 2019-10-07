@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { VehicleData } from 'src/models/vehicleData';
 import { MotData } from 'src/models/motData';
 import { Issue }  from '../../../models/issue';
+import { TitleCasePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -11,20 +13,11 @@ import { Issue }  from '../../../models/issue';
 export class VehicledetailsComponent implements OnInit {
 
   @Input() vehicleData: VehicleData;
+  @Output() selectedMot = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
-
-  displayDate(date: string): string {
-    let options = {
-      weekday: 'short', // Thursday will be Thur
-      year: '2-digit', // Year will be the last two digits
-      month: 'short', // March will be MAr
-      day: 'numeric' // Day will be a singile number
-    };
-    return (new Date(date)).toLocaleDateString("en-GB", options);
-  }
 
   generateIssueList(motData: MotData): Issue[] {
 
@@ -52,6 +45,10 @@ export class VehicledetailsComponent implements OnInit {
 
     return tempIssueList;
 
+  }
+
+  goToMot(index: number) {
+    this.selectedMot.emit( index );
   }
 
 }

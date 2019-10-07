@@ -2,8 +2,8 @@
 
   <div class="result"><p>{{ motData.testResult }}</p></div>
   <div class="mot-data">
-    <p>{{ motData.expiryDate }}June 12th 2018</p>
-    <p>{{ motData.odometerValue}} {{ motData.odometerUnit }}200,000k miles</p>
+    <p>{{ motData.completedDate | formatDate }}</p>
+    <p>{{ motData.odometerValue | toThousands }}k miles</p>
   </div>
 
   <ion-label>Dangerous Defects ({{ dangerous.length }})</ion-label>

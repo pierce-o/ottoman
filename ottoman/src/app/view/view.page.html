@@ -20,7 +20,7 @@
 <ion-content>
 
   <ng-container *ngIf="selectedMot == -1; else motview">
-    <app-vehicle-details [vehicleData]="vehicle"></app-vehicle-details>
+    <app-vehicle-details [vehicleData]="vehicle" (selectedMot)="selectedMot=$event"></app-vehicle-details>
   </ng-container>
   
   <ng-template #motview>

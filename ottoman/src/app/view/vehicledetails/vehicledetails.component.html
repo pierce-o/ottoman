@@ -2,7 +2,7 @@
 
   <div class="single-line">
     <p>Registration Date</p>
-    <p>{{ displayDate(vehicleData.dvlaData.registrationDate) }}</p>
+    <p>{{ vehicleData.dvlaData.registrationDate | formatDate }}</p>
   </div>
 
   <div class="single-line">
@@ -29,13 +29,13 @@
     <div class="left">
       <div class="single-line">
         <p>Tax</p>
-        <p>{{ vehicleData.hasTax ? displayDate(vehicleData.taxDueDate) : 'None' }}</p>
+        <p>{{ vehicleData.hasTax ? (vehicleData.taxDueDate | formatDate) : 'None' }}</p>
       </div>
     </div>
     <div class="right">
       <div class="single-line">
         <p>MOT</p>
-        <p>{{ vehicleData.hasMot ? displayDate(vehicleData.motDueDate) : 'None' }}</p>
+        <p>{{ vehicleData.hasMot ? (vehicleData.motDueDate | formatDate) : 'None' }}</p>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
     <div class="left">
       <div class="single-line">
         <p>Primary Colour</p>
-        <p>{{ vehicleData.dvlaData.primaryColour }}</p>
+        <p>{{ vehicleData.dvlaData.primaryColour | titlecase }}</p>
       </div>
     </div>
     <div class="right">
@@ -64,7 +64,7 @@
   <ng-container *ngIf="vehicleData.dvlaData.motTests.length > 0; else noneMessage">
   
     <ul>
-      <li *ngFor="let motData of vehicleData.dvlaData.motTests;">
+      <li *ngFor="let motData of vehicleData.dvlaData.motTests; let i = index" (click)="goToMot(i)">
 
         <div class="left">
           <div class="top">
@@ -77,7 +77,7 @@
         </div>
 
         <div class="right">
-          <p class="date"> {{ displayDate(motData.completedDate) }} </p>
+          <p class="date"> {{ motData.completedDate | formatDate }} </p>
           <p class="mileage"> {{ motData.odometerValue | toThousands }}k </p>
           <div class="spacer"></div>
           <p class="view-more">View More</p>
