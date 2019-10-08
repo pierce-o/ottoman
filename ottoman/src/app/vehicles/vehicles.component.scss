@@ -123,16 +123,6 @@ $disabled-color: #BBBBBB;
                         }
                     }
 
-                    .requirement-labels {
-                        display: flex;
-                        flex: 1;
-
-                        p {
-                            font-weight: bold;
-                        }
-
-                    }
-
                 }
 
                 .bottom-bar {
@@ -140,7 +130,6 @@ $disabled-color: #BBBBBB;
 
                     .button-container {
 
-                       // min-width: 50%;
                         flex: 1;
                         display: flex;
                         .view-button {
@@ -167,6 +156,28 @@ $disabled-color: #BBBBBB;
                         display: flex;
                         align-items: baseline;
 
+                        .status-data {
+                            display: flex;
+                            flex-flow: column;
+
+                            height: 90%;
+
+                            flex: 1;
+                            padding-left: .2em;
+                            padding-right: .2em;
+
+                            .label {
+                                flex: 1;
+                                font-weight: bold;
+                                text-align: center;
+                            }
+
+                            .status {
+                                flex: 1;
+                            }
+    
+                        }
+
                         p {
                             text-align: center;
                             min-width: max-content;
@@ -175,7 +186,10 @@ $disabled-color: #BBBBBB;
                         }
 
                         .is-date {
+                            display: flex;
                             font-size: .7em;
+                            text-align: center;
+                            align-items: flex-end;
                         }
 
                     }
