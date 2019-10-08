@@ -35,7 +35,10 @@ export class ViewPage implements OnInit {
   }
 
   goBack(): void {
-    this.navCtrl.back();
+    if(this.selectedMot < 0)
+      this.navCtrl.back();
+    else
+      this.selectedMot = -1;
   }
 
 }

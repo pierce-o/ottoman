@@ -38,9 +38,9 @@
                         </div>
                         <div class="bottom-bar">
                             <div class="requirements">
-                                <p [ngClass]="vehicle.hasMot ? 'is-date' : ''" [style.color]="checkDate(vehicle.dvlaData, 'mot')"> {{ vehicle.hasMot ? getDate(vehicle.motDueDate) : 'No' }} </p>
-                                <p [ngClass]="vehicle.hasTax ? 'is-date' : ''" [style.color]="checkDate(vehicle.dvlaData, 'tax')"> {{ vehicle.hasTax ? getDate(vehicle.taxDueDate) : 'No' }} </p>
-                                <p [ngClass]="vehicle.isSORNd ? 'is-date' : ''" [style.color]="checkDate(vehicle.dvlaData, 'sorn')">{{ vehicle.isSORNd ? getDate(vehicle.sornDate) : 'No'}}</p>
+                                <p [ngClass]="vehicle.hasMot ? 'is-date' : ''" [style.color]="checkDate(vehicle, 'mot')"> {{ vehicle.hasMot ? getDate(vehicle.motDueDate) : 'No' }} </p>
+                                <p [ngClass]="vehicle.hasTax ? 'is-date' : ''" [style.color]="checkDate(vehicle, 'tax')"> {{ vehicle.hasTax ? getDate(vehicle.taxDueDate) : 'No' }} </p>
+                                <p [ngClass]="vehicle.isSORNd ? 'is-date' : ''" [style.color]="checkDate(vehicle, 'sorn')">{{ vehicle.isSORNd ? getDate(vehicle.sornDate) : 'No'}}</p>
                             </div>
                         </div>
                     </div>

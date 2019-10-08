@@ -36,22 +36,18 @@ export class MotViewComponent implements OnInit {
 
       if(this.motData.rfrAndComments != undefined){
         this.dangerous = this.motData.rfrAndComments.filter( x => {
-          console.log(x.type);
           return (x.type.toLowerCase() == "dangerous" || x.dangerous == true);
         });
 
         this.major = this.motData.rfrAndComments.filter( x => {
-          console.log(x.type);
           return (x.type.toLowerCase() == "fail");
         });
 
         this.minor = this.motData.rfrAndComments.filter( x => {
-          console.log(x.type);
           return (x.type.toLowerCase() == "minor");
         });
 
         this.advisory = this.motData.rfrAndComments.filter( x => {
-          console.log(x.type);
           return (x.type.toLowerCase() == "advisory");
         });
       }
@@ -60,7 +56,6 @@ export class MotViewComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChange) {
-    console.log(changes['vehicleData'].currentValue);
     this.update();
   }
 

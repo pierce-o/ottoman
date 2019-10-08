@@ -28,10 +28,11 @@ export class VehiclesComponent implements OnInit {
 
   }
 
-  dateToColour(date) {
+  dateToColour(dateString) {
+    let date = new Date(dateString);
     let now = Date.now();
 
-    if(date.getTime() > now) // check if their is still a valid mot
+    if(date.getTime() < now) // check if their is still a valid mot
       date.setDate( (date.getDate() - 1 ) );
 
       if(date.getTime() < now) // One day remaining
@@ -53,21 +54,27 @@ export class VehiclesComponent implements OnInit {
     }
   }
 
-  checkDate(dvla: DvlaData, type: string): string {
+  checkDate(dvla: VehicleData, type: string): string {
 
     switch(type) {
       case 'mot':
-        let motDate: Date = new Date( dvla.registrationDate/*dvla.motTests[0].expiryDate*/ );
+        if(!dvla.hasMot)
+          return '#D62626';
+        let motDate: Date = new Date( dvla.motDueDate );
         return this.dateToColour(motDate);
         break;
 
       case 'tax':
-        let taxDate: Date = new Date( dvla.registrationDate/*dvla.motTests[0].expiryDate*/ );
+        if(!dvla.hasTax)
+          return '#D62626';
+        let taxDate: Date = new Date( dvla.taxDueDate );
         return this.dateToColour(taxDate);
         break;
 
       case 'sorn':
-        let sornDate: Date = new Date( dvla.registrationDate/*dvla.motTests[0].expiryDate*/ );
+        if(!dvla.isSORNd)
+          return '#D62626';
+        let sornDate: Date = new Date( dvla.sornDate );
         return this.dateToColour(sornDate);
         break;
 
