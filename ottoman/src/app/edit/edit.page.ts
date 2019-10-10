@@ -3,22 +3,18 @@ import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
-import { EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.page.html',
-  styleUrls: ['./view.page.scss'],
+  selector: 'app-edit',
+  templateUrl: './edit.page.html',
+  styleUrls: ['./edit.page.scss'],
 })
-export class ViewPage implements OnInit {
+export class EditPage implements OnInit {
 
   index: number = -1;
-  type: string = null;
-  selectedMot: number = -1;
+  type: string;
 
-  vehicle: VehicleData = new VehicleData();
-
-  motEventEmitter: EventEmitter<number>;
+  vehicle: VehicleData = null;
 
   constructor( private navCtrl: NavController, private activeRoute: ActivatedRoute, private storage: StorageManagerService ) { }
 
@@ -32,16 +28,9 @@ export class ViewPage implements OnInit {
           this.vehicle = vehicle;
         } );
       }
-
+      
     } );
 
-  }
-
-  goBack(): void {
-    if(this.selectedMot < 0)
-      this.navCtrl.back();
-    else
-      this.selectedMot = -1;
   }
 
 }

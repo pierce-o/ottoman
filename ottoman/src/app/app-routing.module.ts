@@ -14,6 +14,10 @@ const routes: Routes = [
   { 
     path: 'view/:index/:type', 
     loadChildren: () => import('./view/view.module').then(m => m.ViewPageModule)
+  },
+  { 
+    path: 'edit/:index/:type', 
+    loadChildren: () => import('./view/view.module').then(m => m.ViewPageModule) 
   }
 ];
 
