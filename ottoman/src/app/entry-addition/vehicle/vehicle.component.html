@@ -25,7 +25,7 @@
 
       <ion-label class="title">Registration</ion-label>
       <div class="input">
-        <ion-input placeholder="Your registrations" [(ngModel)]="tempVehicle.dvlaData.registration"></ion-input>
+        <ion-input placeholder="Your registrations" [(ngModel)]="tempVehicle.dvlaData.registration" [pattern]="plateRegexExp"></ion-input>
       </div>
 
       <ion-label class="title">Make</ion-label>

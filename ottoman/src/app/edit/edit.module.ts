@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { EditPage } from './edit.page';
+import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [EditPage]
+  declarations: [
+    EditPage,
+    VehicleEditComponent
+  ]
 })
 export class EditPageModule {}

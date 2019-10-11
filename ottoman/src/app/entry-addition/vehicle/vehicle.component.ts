@@ -36,6 +36,8 @@ export class VehicleComponent implements OnInit {
   todaysDate: string;
   nextYear: string;
 
+  plateRegexExp: string = `(?<NewStyle>^[^Z|^I]{2}[0-9]{2}\s[A-Z]{3}$)|(?<Dateless>^(([1-9]{1,3}\s[A-Z]{1,3}$)|([A-Z]{1,3}\s[1-9]{1,3}$)))|(?<Suffix>^[A-Z]{3}\s[1-9]{1,3}[A-Z]{1}$)|(?<Prefix>^[A-Z]{1}[0-9]{1,3}\s[A-Z]{3})|(?<Irish>^[A-Z]{3}\s[0-9]{1,4})`;
+
   constructor(public loadingController: LoadingController, private storage: StorageManagerService, private toastController: ToastController) { }
 
   ngOnInit() {
