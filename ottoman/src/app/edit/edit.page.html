@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit</ion-title>
+    <ng-container *ngIf="type == 'vehicles'; else regs">
+      <ion-title *ngIf="vehicle != null">{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+    </ng-container>
+    <ng-template #regs>
+        
+    </ng-template>
+    
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ng-container *ngIf="type == 'vehicles'">
+    <app-vehicle-edit [vehicle]="vehicle"></app-vehicle-edit>
+  </ng-container>
 </ion-content>

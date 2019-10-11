@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   { 
     path: 'edit/:index/:type', 
-    loadChildren: () => import('./view/view.module').then(m => m.ViewPageModule) 
+    loadChildren: () => import('./edit/edit.module').then(m => m.EditPageModule) 
   }
 ];
 

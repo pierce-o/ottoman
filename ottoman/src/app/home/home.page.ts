@@ -42,6 +42,27 @@ export class HomePage {
     }
   }
 
+  editEntry(): void {
+
+    // Make sure that a vehicle has been selected
+    if(this.selectedIndex == -1)
+      return;
+
+    switch(this.selectedTab)
+    {
+      case 'vehicles': // Carry out the deletion for the vehicles
+
+        this.router.navigate( ['/edit', this.selectedIndex, 'vehicle'] );
+
+        break;
+
+      default: 
+        break;
+
+    }
+
+  }
+
   deleteEntry(): void {
 
     // Make sure that a vehicle has been selected
