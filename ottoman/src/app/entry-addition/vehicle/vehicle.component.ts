@@ -36,7 +36,7 @@ export class VehicleComponent implements OnInit {
   todaysDate: string;
   nextYear: string;
 
-  plateRegexExp: string = `(?<NewStyle>^[^Z|^I]{2}[0-9]{2}\s[A-Z]{3}$)|(?<Dateless>^(([1-9]{1,3}\s[A-Z]{1,3}$)|([A-Z]{1,3}\s[1-9]{1,3}$)))|(?<Suffix>^[A-Z]{3}\s[1-9]{1,3}[A-Z]{1}$)|(?<Prefix>^[A-Z]{1}[0-9]{1,3}\s[A-Z]{3})|(?<Irish>^[A-Z]{3}\s[0-9]{1,4})`;
+  plateRegexExp: string = `/(^[^Z|^I]{2}[0-9]{2}\s[A-Z]{3}$)|(^(([1-9]{1,3}\s[A-Z]{1,3}$)|([A-Z]{1,3}\s[1-9]{1,3}$)))|(^[A-Z]{3}\s[1-9]{1,3}[A-Z]{1}$)|(^[A-Z]{1}[0-9]{1,3}\s[A-Z]{3})|(^[A-Z]{3}\s[0-9]{1,4})`;
 
   constructor(public loadingController: LoadingController, private storage: StorageManagerService, private toastController: ToastController) { }
 
@@ -113,4 +113,18 @@ export class VehicleComponent implements OnInit {
       this.comments = this.comments.filter( (x, index) => index != this.selectedComment );
   }
   
+  restrictInput(e): void {
+    var regex = /(^[^Z|^I]{2}[0-9]{2}\s[^Z|^I]{3}$)|(^(([1-9]{1,3}\s[^Z|^I]{1,3}$)|([^Z|^I]{1,3}\s[1-9]{1,3}$)))|(^[^Z|^I]{3}\s[1-9]{1,3}[^Z|^I]{1}$)|(^[^Z|^I]{1}[0-9]{1,3}\s[^Z|^I]{3}$)|(^[A-Z]{3}\s[0-9]{1,4}$)/;
+
+    var elementValue: string = e.srcElement.value;
+
+    if(!regex.test(elementValue))
+      e.srcElement.value = "";
+  }
+
+  upperCase(e): void {
+    var elementValue: string = e.srcElement.value;
+    e.srcElement.value = elementValue.toUpperCase();
+  }
+
 }
