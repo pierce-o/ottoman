@@ -23,7 +23,7 @@ export class EditPage implements OnInit {
       this.index = Number.parseInt( map.get('index') );
       this.type = map.get('type');
 
-      if(this.type == "vehicles") {
+      if(this.type == "vehicle") {
         this.storage.getVehicleById( this.index ).then( vehicle => {
           this.vehicle = vehicle;
         } );

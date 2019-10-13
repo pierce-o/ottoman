@@ -17,7 +17,9 @@ export class VehicledetailsComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   generateIssueList(motData: MotData): Issue[] {
 
