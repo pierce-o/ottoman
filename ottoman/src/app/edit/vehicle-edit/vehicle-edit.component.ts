@@ -14,7 +14,9 @@ export class VehicleEditComponent implements OnInit {
 
   constructor(private navCtrl: NavController, private storage: StorageManagerService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.vehicleData);
+  }
 
   updateVehicle(): void {
 
