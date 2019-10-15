@@ -15,6 +15,8 @@ export class VehicledetailsComponent implements OnInit {
   @Input() vehicleData: VehicleData;
   @Output() selectedMot = new EventEmitter<number>();
 
+  displayingAll: boolean = false;
+
   constructor(private router: Router) { }
 
   ngOnInit() {

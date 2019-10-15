@@ -66,27 +66,31 @@
     <ul>
       <li *ngFor="let motData of vehicleData.dvlaData.motTests; let i = index" (click)="goToMot(i)">
 
-        <div class="left">
-          <div class="top">
-            <p class="mot-result"> {{ motData.testResult }} </p>
-            <p *ngFor="let issue of generateIssueList(motData)" class="issue">{{ issue.count }} {{ issue.displayText }}</p>
-          </div> 
-          <div class="bottom">
-            <p *ngFor="let issue of generateIssueList(motData)" >{{ issue.text }}</p>
+        <ng-container *ngIf="(i < 5 || displayingAll)">
+        
+          <div class="left">
+            <div class="top">
+              <p class="mot-result"> {{ motData.testResult }} </p>
+              <p *ngFor="let issue of generateIssueList(motData)" class="issue">{{ issue.count }} {{ issue.displayText }}</p>
+            </div> 
+            <div class="bottom">
+              <p *ngFor="let issue of generateIssueList(motData)" >{{ issue.text }}</p>
+            </div>
           </div>
-        </div>
 
-        <div class="right">
-          <p class="date"> {{ motData.completedDate | formatDate }} </p>
-          <p class="mileage"> {{ motData.odometerValue | toThousands }}k </p>
-          <div class="spacer"></div>
-          <p class="view-more">View More</p>
-        </div>
+          <div class="right">
+            <p class="date"> {{ motData.completedDate | formatDate }} </p>
+            <p class="mileage"> {{ motData.odometerValue | toThousands }}k </p>
+            <div class="spacer"></div>
+            <p class="view-more">View More</p>
+          </div>
+          
+        </ng-container>
 
       </li>
     </ul>
 
-    <div class="view-all">
+    <div class="view-all" *ngIf="vehicleData.dvlaData.motTests.length > 4" (click)="displayingAll = true">
       <p>View All</p>
     </div>
 
