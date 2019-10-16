@@ -89,7 +89,7 @@ export class StorageManagerService {
 
   updateVehicle(itemIndex: number, updatedVehicle: VehicleData): Promise<any> {
     return this.storage.get( keys.vehicles ).then( (vehicles: VehicleData[] ) => {
-      if(vehicles[itemIndex] != null || vehicles[itemIndex] != undefined){
+      if(vehicles[itemIndex] != null && vehicles[itemIndex] != undefined && updatedVehicle != null && updatedVehicle != undefined ){
         vehicles[itemIndex] = updatedVehicle;
         return this.storage.set(keys.vehicles, vehicles);
       } else {

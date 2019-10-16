@@ -51,8 +51,10 @@ export class HomePage {
     switch(this.selectedTab)
     {
       case 'vehicles': // Carry out the deletion for the vehicles
-
-        this.router.navigate( ['/edit', this.selectedIndex, 'vehicle'] );
+        // Navigate to the edit page passing the selected index and the type vehicle
+        this.router.navigate( ['/edit', this.selectedIndex, 'vehicle'] ).then( data => {
+          this.selectedIndex = -1; // Deseleted the selected vehicle
+        });
 
         break;
 

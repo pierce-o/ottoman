@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { VehicleData } from 'src/models/vehicleData';
 import { NavController } from '@ionic/angular';
 import { StorageManagerService } from 'src/app/storage-manager.service';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-vehicle-edit',
@@ -16,11 +17,17 @@ export class VehicleEditComponent implements OnInit {
   constructor(private navCtrl: NavController, private storage: StorageManagerService) { }
 
   ngOnInit() {
-    this.storage.getIndexOfVehicle( this.vehicleData ).then( index => this.vehicleIndex = index );
+
   }
 
   updateVehicle(): void {
-    this.storage.updateVehicle( this.vehicleData );
+    if(this.vehicleIndex != -1)
+      this.storage.updateVehicle( this.vehicleIndex, this.vehicleData ).then( data => {
+        if(data != null) {
+          this.navCtrl.back();
+          this.storage.updateVehicles();
+        }
+      });
   }
 
 }
