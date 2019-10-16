@@ -81,4 +81,21 @@ export class StorageManagerService {
 
   }
 
+  getIndexOfVehicle(vehicleData: VehicleData): Promise<number> {
+    return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
+      return vehicles.indexOf( vehicleData );
+    });
+  }
+
+  updateVehicle(itemIndex: number, updatedVehicle: VehicleData): Promise<any> {
+    return this.storage.get( keys.vehicles ).then( (vehicles: VehicleData[] ) => {
+      if(vehicles[itemIndex] != null || vehicles[itemIndex] != undefined){
+        vehicles[itemIndex] = updatedVehicle;
+        return this.storage.set(keys.vehicles, vehicles);
+      } else {
+        return false;
+      }
+    });
+  }
+
 }

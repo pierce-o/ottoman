@@ -11,15 +11,16 @@ import { StorageManagerService } from 'src/app/storage-manager.service';
 export class VehicleEditComponent implements OnInit {
 
   @Input() vehicleData: VehicleData;
+  vehicleIndex: number = -1;
 
   constructor(private navCtrl: NavController, private storage: StorageManagerService) { }
 
   ngOnInit() {
-    console.log(this.vehicleData);
+    this.storage.getIndexOfVehicle( this.vehicleData ).then( index => this.vehicleIndex = index );
   }
 
   updateVehicle(): void {
-
+    this.storage.updateVehicle( this.vehicleData );
   }
 
 }
