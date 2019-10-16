@@ -1,0 +1,27 @@
+ion-title {
+    font-size: auto;
+}
+
+ion-header {
+    ion-toolbar{
+        ion-label {
+            font-size: .8em;
+            font-weight: bold;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .save {
+            color: #3184bd;
+            margin-left: .6em;
+        }
+
+        .cancel {
+            color: #d62626;
+            margin-right: .6em;
+        }
+
+        ion-title {
+            font-size: auto;
+        }
+    }
+}

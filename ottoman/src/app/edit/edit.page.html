@@ -1,7 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ng-container *ngIf="type == 'vehicles'; else regs">
+  <ion-toolbar text-center>
+    <ng-container *ngIf="type == 'vehicle'; else regs">
+      <ion-label class="save" slot="start">SAVE</ion-label>
       <ion-title *ngIf="vehicle != null">{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+      <ion-label class="cancel" slot="end" (click)="goBack()">CANCEL</ion-label>
     </ng-container>
     <ng-template #regs>
         

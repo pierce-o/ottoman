@@ -33,4 +33,8 @@ export class EditPage implements OnInit {
 
   }
 
+  goBack(): void {
+    this.navCtrl.back();
+  }
+
 }

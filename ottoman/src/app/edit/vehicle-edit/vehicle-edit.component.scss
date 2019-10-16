@@ -1,0 +1,201 @@
+$primary-color: #2D78AB;
+$disabled-color: #BBBBBB;
+
+ion-button {
+    --background: #2D78AB;
+    --background-activated: #3184bd;
+    --border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+
+.input {
+
+
+    width: 100%;
+    border-bottom: 2px solid #2D78AB;
+
+}
+
+.content {
+    color: #272727;
+    padding: 1em;
+
+    ion-label {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+    } 
+
+    .title {
+        display: block;
+    }
+
+    .information {
+        display: block;
+        font-family: 'DM Sans', sans-serif;
+        font-size: .85em;
+        color: $disabled-color;
+        font-weight: normal;
+        padding-top: .2em;
+    }
+
+    .input {
+
+        margin-bottom: .4em;
+
+        ion-input {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1em;
+            font-weight: normal;
+        }
+    }
+   
+    .sameline-input {
+
+        display: grid;
+
+        .title {
+            grid-row: 1;
+        }
+
+        .input {
+
+            grid-row: 2;
+
+            margin-right: .3em;
+
+            ion-input {
+                flex: 1;
+            }
+
+        }
+    }
+
+    .mot-defect-controls {
+        display: flex;
+        text-align: center;
+        align-items: center; /* align vertical */
+
+        color: white;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+
+        height: 2em;
+
+        .add {
+            flex: 1;
+            margin-right: .6em;
+            background-color: $primary-color;
+            border-radius: 6px;
+        }
+
+        .delete {
+            flex: 1;
+            margin-left: .6em;
+            background-color: $primary-color;
+            border-radius: 6px;
+        }
+
+    }
+
+    .mot-entry-display {
+
+        margin-top: .5em;
+        display: grid;
+        grid-template-columns: 80% auto;
+
+        ion-list {
+            columns: 1;
+
+            ion-item {
+
+                .mot-entry {
+
+                    padding-left: .3em;
+                    padding-right: .3em;
+                    width: 100%;
+                    height: 100%;
+
+                    p {
+                        font-family: 'DM Sans', sans-serif;
+                        padding-left: .4em;
+                        padding-right: .4em;
+                    }
+
+                    display: flex;
+                    .mot-result{
+                        flex: 1;
+                        font-weight: bold;
+                    }
+                    .mot-date {
+                        float: right;
+                    }
+                    
+                }
+
+            }
+
+            ion-item:nth-child(odd) .mot-entry {
+                background-color: #F8F8F8;
+            }
+
+            .selected { 
+                padding-left: 1em;
+                border-left: 2px solid $primary-color;
+            }
+
+        }
+
+        .mot-controls {
+            columns: 2;
+            padding-left: .4em;
+            padding-right: .4em;
+            display: inline-table;
+
+            .control {
+                width: 2.6em;
+                height: 2.6em;
+                color: white;
+                font-size: 1em;
+                font-weight: bold;
+                text-align: center;
+                background-color: $primary-color;
+                clip-path: circle(40% at 50% 50%);
+                transform: translate3d(0px, 0px, 0px); // Stops the element disappearing when the button slider is transforming
+
+                ion-icon {
+                    width: 100%;
+                    height: 100%;
+                }
+
+            }
+
+        }
+
+    }
+
+    ion-footer {
+        margin-top: 1.2em;
+    }
+
+}
+
+.store-v5 {
+
+    ion-label {
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        padding-left: 1em;
+
+    }
+
+}
