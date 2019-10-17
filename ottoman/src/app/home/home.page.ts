@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController, AlertController } from '@ionic/angular';
 import { StorageManagerService } from '../storage-manager.service';
+import { VehiclesComponent } from '../vehicles/vehicles.component';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { StorageManagerService } from '../storage-manager.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  @ViewChild("vehiclesList", {static: false}) vehiclesList : VehiclesComponent;
 
   selectedTab: string = "vehicles";
   selectedIndex: number = -1;
@@ -22,7 +25,6 @@ export class HomePage {
 
     this.changeMenuState(false);
 
-    //this.router.navigate(['/add', this.selectedTab]);
   }
 
   changeMenuState(state: boolean): void {
@@ -53,7 +55,8 @@ export class HomePage {
       case 'vehicles': // Carry out the deletion for the vehicles
         // Navigate to the edit page passing the selected index and the type vehicle
         this.router.navigate( ['/edit', this.selectedIndex, 'vehicle'] ).then( data => {
-          this.selectedIndex = -1; // Deseleted the selected vehicle
+          // Deseleted the selected vehicle
+          this.vehiclesList.selectIndex(-1, true);
         });
 
         break;
@@ -86,7 +89,7 @@ export class HomePage {
                 this.storage.removeVehicle(this.selectedIndex).then( data => {
                   // Once the vehicle has been removed then update the vehicles list and remove the selected index
                   this.storage.updateVehicles();
-                  this.selectedIndex = -1;
+                  this.vehiclesList.selectIndex(-1);
                 });
               }
             },

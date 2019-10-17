@@ -85,10 +85,10 @@ export class VehiclesComponent implements OnInit {
 
   }
 
-  selectIndex(value: number) {
+  selectIndex(value: number, allowNull:boolean = false) {
 
     // Check if the index is already selected
-    if(this.selectedIndex == value)
+    if(this.selectedIndex == value && allowNull == false)
       this.selectedIndex = -1; // It it is then set the value to -1, deselecting the item
     else
       this.selectedIndex = value; // Else set it to this item
