@@ -98,4 +98,67 @@ export class StorageManagerService {
     });
   }
 
+  registerReg(reg: RegData): Promise<any> {
+    
+    return this.storage.get( keys.regs ).then( ( regs: RegData[] ) => {
+      if(regs) { // Check if the vehicles key already has a list and it is valid
+        regs.push(reg); // Add the new vehicle to the end of the list
+        return this.storage.set( keys.regs, regs ); // Set the new vehicles list to the vehicles key
+      } else {
+        // If there isn't already a list under that key then set the keys value in the object to a new list containing the registered vehicle 
+        return this.storage.set( keys.regs, [reg] );
+      }
+    });
+    
+  }
+
+  getRegById(index: number): Promise<any> {
+    return this.storage.get( keys.regs ).then( ( regs: RegData[] ) => {
+      if(regs) {
+        if(index > -1 && index <= regs.length)
+          return regs[index];
+        else
+          return null;
+      } 
+      else
+        return null;
+    });
+  }
+
+  removeReg(itemIndex: number): Promise<any> {
+
+    return this.storage.get( keys.regs ).then( ( regs: RegData[] ) => {
+
+      if(itemIndex > -1 && itemIndex <= regs.length){
+        
+        let filtered = regs.filter( (reg, index) => {
+          if(index != itemIndex)
+            return reg;
+        });
+
+        return this.storage.set( keys.regs, filtered );
+
+      }
+
+    });
+
+  }
+
+  getIndexOfReg(regData: RegData): Promise<number> {
+    return this.storage.get( keys.regs ).then( ( vehicles: RegData[] ) => {
+      return vehicles.indexOf( regData );
+    });
+  }
+
+  updateReg(itemIndex: number, updatedReg: VehicleData): Promise<any> {
+    return this.storage.get( keys.regs ).then( (regs: RegData[] ) => {
+      if(regs[itemIndex] != null && regs[itemIndex] != undefined && updatedReg != null && updatedReg != undefined ){
+        regs[itemIndex] = updatedReg;
+        return this.storage.set(keys.regs, regs);
+      } else {
+        return false;
+      }
+    });
+  }
+
 }
