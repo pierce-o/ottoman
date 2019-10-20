@@ -1,6 +1,31 @@
 <ng-container *ngIf="registrations.length > 0; else message">
-    <div *ngFor="let reg of registrations" class="registration-entry">
-
+    <div class="reg-container">           
+        <div *ngFor="let reg of registrations" class="registration-entry">
+            <div class="left">
+                <p class="storage-type">{{ reg.storageType }}</p>
+                <p class="plate-display">{{ reg.reg }}</p>
+            </div>
+            <div class="right">
+                <p class="date-added">{{ reg.dateAdded }}</p>
+                <ng-container *ngIf="reg.storageType == 'vehicle'; else retention">
+                    <p>{{ reg.retentionSince }}</p>
+                    <p>{{ reg.retentionExpire }}</p>
+                </ng-container>
+                <ng-template #retention>
+                    <div *ngIf=" != null; else vehicleAddition">
+                        <p>We have found your this reg attached to a vehicle in your app.</p>
+                        <div class="view-info" (click)="null">View Info</div>
+                    </div>
+                    <ng-template #vehicleAddtion>
+                        <div *ngIf=" != null; else vehicleAddition">
+                            <p>We cannot find your reg attached to a vehicle in your app.</p>
+                            <div class="view-info" (click)="null">Add It</div>
+                        </div>
+                    </ng-template>
+                    
+                </ng-template>
+            </div>
+        </div>
     </div>
 </ng-container>
 
