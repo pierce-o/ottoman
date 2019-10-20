@@ -150,7 +150,7 @@ export class StorageManagerService {
     });
   }
 
-  updateReg(itemIndex: number, updatedReg: VehicleData): Promise<any> {
+  updateReg(itemIndex: number, updatedReg: RegData): Promise<any> {
     return this.storage.get( keys.regs ).then( (regs: RegData[] ) => {
       if(regs[itemIndex] != null && regs[itemIndex] != undefined && updatedReg != null && updatedReg != undefined ){
         regs[itemIndex] = updatedReg;
