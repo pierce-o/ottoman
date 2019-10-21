@@ -16,11 +16,16 @@ const keys = {
 export class StorageManagerService {
 
   vehiclesObserable: EventEmitter<VehicleData[]> = new EventEmitter<VehicleData[]>();
+  registrationsObserable: EventEmitter<RegData[]> = new EventEmitter<RegData[]>();
 
   constructor(private storage: Storage) { }
 
   updateVehicles() {
     this.getAllDisplayableVehicles().then( data => this.vehiclesObserable.emit( data ) );
+  }
+
+  updateRegistrations() {
+    this.getAllDisplayableRegs().then( data => this.registrationsObserable.emit( data ) );
   }
 
   getAllDisplayableVehicles() : Promise<VehicleData[]> {

@@ -12,12 +12,13 @@
                     <p>{{ reg.retentionExpire }}</p>
                 </ng-container>
                 <ng-template #retention>
-                    <div *ngIf=" != null; else vehicleAddition">
+
+                    <div *ngIf="getRelatedReg( reg ) != null; else vehicleAddition">
                         <p>We have found your this reg attached to a vehicle in your app.</p>
-                        <div class="view-info" (click)="null">View Info</div>
+                        <div class="view-info" (click)="goToViewPage( getRelatedReg( reg ) )">View Info</div>
                     </div>
                     <ng-template #vehicleAddtion>
-                        <div *ngIf=" != null; else vehicleAddition">
+                        <div>
                             <p>We cannot find your reg attached to a vehicle in your app.</p>
                             <div class="view-info" (click)="null">Add It</div>
                         </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RegData } from '../../models/regData';
 import { StorageManagerService } from '../storage-manager.service';
+import { VehicleData } from 'src/models/vehicleData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrations',
@@ -11,16 +13,24 @@ export class RegistrationsComponent implements OnInit {
 
   registrations: RegData[] = [];
 
-  constructor( private storageManager: StorageManagerService ) { }
+  constructor( private router: Router, private storage: StorageManagerService ) { }
 
   ngOnInit() {
 
-    //this.storageManager.getAllDisplayableRegs().subscribe( data => {
+    this.storage.registrationsObserable.subscribe( data => this.registrations = data );
 
-      
+  }
 
-    //});
+  getRelatedReg(reg: RegData): VehicleData {
+    let vehicleData = null; this.storage.getAllDisplayableVehicles().then( (vehicles: VehicleData[]) => {
+      vehicleData = vehicles.find( x => { return x.dvlaData.registration.toLowerCase().trim() == reg.reg.toLowerCase().trim() } );
+    });
 
+    return vehicleData;
+  }
+
+  goToPage( vehicleData: VehicleData ) {
+    this.router.navigate(['/view', this.storage.getIndexOfVehicle(vehicleData), 'vehicle']);
   }
 
 }
