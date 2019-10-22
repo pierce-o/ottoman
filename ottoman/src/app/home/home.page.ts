@@ -61,6 +61,15 @@ export class HomePage {
 
         break;
 
+      case 'registrations':
+
+          this.router.navigate( ['/edit', this.selectedIndex, 'registration'] ).then( data => {
+            // Deseleted the selected vehicle
+            this.vehiclesList.selectIndex(-1, true);
+          });
+
+        break;
+
       default: 
         break;
 

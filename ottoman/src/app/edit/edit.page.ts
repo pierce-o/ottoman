@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
 import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
+import { RegistrationEditComponent } from './registration-edit/registration-edit.component';
 
 @Component({
   selector: 'app-edit',
@@ -13,11 +14,13 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 export class EditPage implements OnInit {
 
   @ViewChild('vehicleEdit', {static: false}) vehicleEdit: VehicleEditComponent;
+  @ViewChild('registrationEdit', {static: false}) registrationEdit: RegistrationEditComponent;
 
   index: number = -1;
   type: string;
 
   vehicle: VehicleData = null;
+  registration: VehicleData = null;
 
   constructor( private navCtrl: NavController, private activeRoute: ActivatedRoute, private storage: StorageManagerService ) { }
 
@@ -32,6 +35,12 @@ export class EditPage implements OnInit {
           this.vehicleEdit.vehicleData = vehicle;
           this.vehicleEdit.vehicleIndex = this.index;
         } );
+      } else if (this.type == "registration") {
+        this.storage.getRegById( this.index ).then( registration => {
+          this.registration = registration;
+          this.registrationEdit.registrationData = registration;
+          this.registrationEdit.registrationIndex = this.index;
+        });
       }
     } );
   }

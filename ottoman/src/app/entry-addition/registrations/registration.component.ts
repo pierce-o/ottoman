@@ -11,4 +11,18 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {}
 
+  restrictInput(e): void {
+    var regex = /(^[^Z|^I]{2}[0-9]{2}\s[^Z|^I]{3}$)|(^(([1-9]{1,3}\s[^Z|^I]{1,3}$)|([^Z|^I]{1,3}\s[1-9]{1,3}$)))|(^[^Z|^I]{3}\s[1-9]{1,3}[^Z|^I]{1}$)|(^[^Z|^I]{1}[0-9]{1,3}\s[^Z|^I]{3}$)|(^[A-Z]{3}\s[0-9]{1,4}$)/;
+
+    var elementValue: string = e.srcElement.value;
+
+    if(!regex.test(elementValue))
+      e.srcElement.value = "";
+  }
+
+  upperCase(e): void {
+    var elementValue: string = e.srcElement.value;
+    e.srcElement.value = elementValue.toUpperCase();
+  }
+
 }

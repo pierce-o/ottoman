@@ -1,3 +1,8 @@
-<p>
-  registration-edit works!
-</p>
+<div class="content" *ngIf="registrationData != null">
+
+  <ion-label class="title">Registration</ion-label>
+  <div class="input">
+    <ion-input placeholder="Your registration" [(ngModel)]="registrationData.reg"  (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
+  </div>
+
+</div>

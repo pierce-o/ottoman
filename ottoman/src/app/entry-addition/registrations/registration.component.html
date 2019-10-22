@@ -1,3 +1,12 @@
-<p>
-  registrations works!
-</p>
+<div class="user-control">
+  <div class="cancel-disabled">CANCEL</div>
+  <div class="title">ADD VEHICLE</div>
+  <div class="save">SAVE</div>
+</div>
+  
+<div class="content"> 
+  <ion-label class="title">Registration</ion-label>
+  <div class="input">
+    <ion-input placeholder="Registration" (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
+  </div>
+</div>  

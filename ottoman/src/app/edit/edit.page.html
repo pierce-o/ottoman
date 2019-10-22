@@ -6,7 +6,9 @@
       <ion-label class="cancel" slot="end" (click)="goBack()">CANCEL</ion-label>
     </ng-container>
     <ng-template #regs>
-        
+        <ion-label class="save" slot="start" (click)="saveData()">SAVE</ion-label>
+        <ion-title *ngIf="vehicle != null">{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+        <ion-label class="cancel" slot="end" (click)="goBack()">CANCEL</ion-label>
     </ng-template>
     
 
@@ -14,5 +16,12 @@
 </ion-header>
 
 <ion-content>
-  <app-vehicle-edit #vehicleEdit [vehicleData]="vehicle"></app-vehicle-edit>
+
+  <ng-container *ngIf="type == 'vehicle'; else #registrationComp">
+    <app-vehicle-edit [hidden]="true" #vehicleEdit [vehicleData]="vehicle"></app-vehicle-edit>
+  </ng-container>
+  <ng-template #registrationComp>
+    <app-registration-edit [hidden]="true" #registrationEdit [registrationData]="registration"></app-registration-edit>
+  </ng-template>
+
 </ion-content>
