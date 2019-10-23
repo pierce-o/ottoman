@@ -6,13 +6,12 @@
 
     <ng-container *ngIf="selectedMot < 0; else mot">
       <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+      <p slot="end">EDIT</p>
     </ng-container>
 
     <ng-template #mot>
       <ion-title>MOT Result</ion-title>
     </ng-template>
-     
-    <p slot="end">EDIT</p>
 
   </ion-toolbar>
 </ion-header>
