@@ -10,6 +10,7 @@
   <div class="input">
     <ion-input placeholder="Your registration" (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
   </div>
+  <ion-label class="error" *ngIf="regError">Your registration is an invalid format.</ion-label>
 
   <div class="element-centre">
     <ion-button size="small" (click)="getDVLADetails()">GET DETAILS</ion-button>
@@ -27,6 +28,7 @@
       <div class="input">
         <ion-input placeholder="Your registration" [(ngModel)]="tempVehicle.dvlaData.registration"  (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
       </div>
+      <ion-label class="error" *ngIf="regError">Your registration is an invalid format.</ion-label>    
 
       <ion-label class="title">Make</ion-label>
       <div class="input">

@@ -37,6 +37,7 @@ export class VehicleComponent implements OnInit {
   nextYear: string;
 
   plateRegexExp: string = `/(^[^Z|^I]{2}[0-9]{2}\s[A-Z]{3}$)|(^(([1-9]{1,3}\s[A-Z]{1,3}$)|([A-Z]{1,3}\s[1-9]{1,3}$)))|(^[A-Z]{3}\s[1-9]{1,3}[A-Z]{1}$)|(^[A-Z]{1}[0-9]{1,3}\s[A-Z]{3})|(^[A-Z]{3}\s[0-9]{1,4})`;
+  regError: boolean = false;
 
   constructor(public loadingController: LoadingController, private storage: StorageManagerService, private toastController: ToastController) { }
 
@@ -119,7 +120,9 @@ export class VehicleComponent implements OnInit {
     var elementValue: string = e.srcElement.value;
 
     if(!regex.test(elementValue))
-      e.srcElement.value = "";
+      this.regError = true;
+    else
+      this.regError = false;
   }
 
   upperCase(e): void {

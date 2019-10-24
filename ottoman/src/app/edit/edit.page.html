@@ -17,7 +17,7 @@
 
 <ion-content>
 
-  <ng-container *ngIf="type == 'vehicle'; else #registrationComp">
+  <ng-container *ngIf="type == 'vehicle'; else registrationComp">
     <app-vehicle-edit [hidden]="true" #vehicleEdit [vehicleData]="vehicle"></app-vehicle-edit>
   </ng-container>
   <ng-template #registrationComp>

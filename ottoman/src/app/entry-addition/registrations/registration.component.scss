@@ -50,3 +50,33 @@ ion-button {
     }
 
 }
+
+.content {
+
+    padding: 1em;
+
+    .input {
+
+        margin-bottom: .4em;
+        width: 100%;
+        border-bottom: 2px solid #2D78AB;
+        
+        ion-input {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1em;
+            font-weight: normal;
+        }
+    }
+
+    ion-label {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+    } 
+
+    .error { 
+        color: #d62626;
+        font-size: .8em;
+    }
+
+}

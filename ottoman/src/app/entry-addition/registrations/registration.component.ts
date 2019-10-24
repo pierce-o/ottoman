@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  regError: boolean = false;
+
   constructor() { }
 
   ngOnInit() {}
@@ -17,7 +19,9 @@ export class RegistrationComponent implements OnInit {
     var elementValue: string = e.srcElement.value;
 
     if(!regex.test(elementValue))
-      e.srcElement.value = "";
+      this.regError = true;
+    else
+      this.regError = false;
   }
 
   upperCase(e): void {

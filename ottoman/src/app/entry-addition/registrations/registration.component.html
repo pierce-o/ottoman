@@ -9,4 +9,5 @@
   <div class="input">
     <ion-input placeholder="Registration" (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
   </div>
+  <ion-label class="error" *ngIf="regError">Your registration is an invalid format.</ion-label>
 </div>  
