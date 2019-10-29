@@ -10,6 +10,17 @@ ion-button {
     font-weight: bold;
 }
 
+.element-centre {
+    display: grid;
+
+    grid-template-columns: auto min-content auto;
+
+    * {
+        grid-column: 2;    
+    }
+
+}
+
 .user-control {
 
     font-family: 'DM Sans', sans-serif;
@@ -77,6 +88,10 @@ ion-button {
     .error { 
         color: #d62626;
         font-size: .8em;
+    }
+
+    ion-footer {
+        margin-top: 1.2em;
     }
 
 }
