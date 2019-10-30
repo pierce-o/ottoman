@@ -150,8 +150,8 @@ export class StorageManagerService {
   }
 
   getIndexOfReg(regData: RegData): Promise<number> {
-    return this.storage.get( keys.regs ).then( ( vehicles: RegData[] ) => {
-      return vehicles.indexOf( regData );
+    return this.storage.get( keys.regs ).then( ( regs: RegData[] ) => {
+      return regs.indexOf( regData );
     });
   }
 

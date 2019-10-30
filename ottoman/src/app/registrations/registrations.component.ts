@@ -17,6 +17,7 @@ export class RegistrationsComponent implements OnInit {
 
   ngOnInit() {
 
+    this.storage.getAllDisplayableRegs().then( data => this.registrations = data );
     this.storage.registrationsObserable.subscribe( data => this.registrations = data );
 
   }
@@ -29,8 +30,8 @@ export class RegistrationsComponent implements OnInit {
     return vehicleData;
   }
 
-  goToPage( vehicleData: VehicleData ) {
-    this.router.navigate(['/view', this.storage.getIndexOfVehicle(vehicleData), 'vehicle']);
+  goToPage( regData: RegData ) {
+    this.router.navigate(['/view', this.storage.getIndexOfReg(regData), 'registration']);
   }
 
 }
