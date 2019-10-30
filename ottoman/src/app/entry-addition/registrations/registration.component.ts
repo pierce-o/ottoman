@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegData } from 'src/models/regData';
+import { StorageManagerService } from 'src/app/storage-manager.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +13,7 @@ export class RegistrationComponent implements OnInit {
   regError: boolean = false;
   tempRegdata: RegData = new RegData();
 
-  constructor() { }
+  constructor(private navCtrl: NavController, private storage: StorageManagerService) { }
 
   ngOnInit() {}
 
@@ -29,6 +31,18 @@ export class RegistrationComponent implements OnInit {
   upperCase(e): void {
     var elementValue: string = e.srcElement.value;
     e.srcElement.value = elementValue.toUpperCase();
+  }
+
+  addReg(): void {
+
+    this.tempRegdata.dateAdded = Date.now().toString();
+
+    this.storage.registerReg( this.tempRegdata ).then( data => {
+      this.storage.updateRegistrations();
+      this.navCtrl.back();
+      this.tempRegdata = new RegData();
+    });
+
   }
 
 }
