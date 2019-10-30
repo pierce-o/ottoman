@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegData } from 'src/models/regData';
 
 @Component({
   selector: 'app-registration',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrationComponent implements OnInit {
 
   regError: boolean = false;
+  tempRegdata: RegData = new RegData();
 
   constructor() { }
 
