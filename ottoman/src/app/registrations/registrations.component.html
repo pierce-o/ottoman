@@ -1,6 +1,11 @@
 <ng-container *ngIf="(registrations != null && registrations.length > 0); else message">
     <div class="reg-container">           
         <div *ngFor="let reg of registrations; let i = index;" class="registration-entry">
+            <div class="first">
+                <div [ngClass]="selectedIndex == i ? 'checkbox ticked' : 'checkbox'" (click)="selectIndex(i)">
+                    <ion-icon name="checkmark"></ion-icon>
+                </div>
+            </div>
             <div class="left">
                 <p class="storage-type">{{ reg.storageType }}</p>
                 <p class="plate-display">{{ reg.reg }}</p>

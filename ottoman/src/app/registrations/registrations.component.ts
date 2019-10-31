@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RegData } from '../../models/regData';
 import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class RegistrationsComponent implements OnInit {
 
+  @Output() valueChange = new EventEmitter<number>();
+
   registrations: RegData[];
+
+  selectedIndex: number = -1;
 
   constructor( private router: Router, private storage: StorageManagerService ) { }
 
@@ -19,7 +23,7 @@ export class RegistrationsComponent implements OnInit {
 
     this.storage.getRegEmitter().then( emitter => { 
       emitter.subscribe( data => {
-        
+
         data.forEach(reg => {
           if(reg.storage != 'vehicle')
             return;
@@ -49,6 +53,17 @@ export class RegistrationsComponent implements OnInit {
 
   goToPage( regData: RegData ) {
     this.router.navigate(['/view', this.storage.getIndexOfReg(regData), 'registration']);
+  }
+
+  selectIndex(value: number, allowNull:boolean = false) {
+
+    // Check if the index is already selected
+    if(this.selectedIndex == value && allowNull == false)
+      this.selectedIndex = -1; // It it is then set the value to -1, deselecting the item
+    else
+      this.selectedIndex = value; // Else set it to this item
+
+    this.valueChange.emit( this.selectedIndex ); // Emit the value
   }
 
 }

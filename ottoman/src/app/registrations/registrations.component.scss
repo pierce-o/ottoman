@@ -1,17 +1,11 @@
+@font-face {
+font-family: 'UKNumberPlate';
+src: url('../../assets/UKNumberPlate.ttf') format("opentype");
+}
+
 $primary-color: #2D78AB;
 $disabled-color: #BBBBBB;
 $odd-color: #F8F8F8;
-
-.registration-entry {
-    
-    width: 100%;
-    height: 4.2em;
-
-}
-
-.registration-entry:nth-child(odd) {
-    background-color: $odd-color;
-}
 
 .error-message {
 
@@ -25,5 +19,78 @@ $odd-color: #F8F8F8;
 
     width: 100%;
     text-align: center;
+
+}
+
+.reg-container {
+
+    .registration-entry {
+
+        width: 100%;
+        height: 5em;
+
+        &:nth-child(odd) {
+            background-color: $odd-color;
+        }
+
+        display: flex;
+
+        .first {
+            float: left;
+            padding: .4em;
+            .checkbox {
+                width: .8em;
+                height: .8em;
+                border-radius: 2px;
+                background-color: #DEDEDE;
+
+                * {
+                    display: none;
+                }
+
+            }
+
+            .ticked {
+                * {
+                    display: block;
+                    text-align: center;
+                    width: inherit;
+                    height: inherit;
+                    padding: 0;
+                    position: absolute;
+                }
+            }
+
+        }
+
+        .left {
+
+            flex: 1;
+            
+            .storage-type {
+                font-weight: bold;
+                padding: 0;
+                margin: 0;
+            }
+            .plate-display {
+                margin: 0;
+                font-size: 1.8em;
+                width: fit-content;
+                background-color: #F9EA14;
+                border: .05em solid black;
+                border-radius: 4px;
+                padding: .1em .35em .1em .35em;
+                text-align: center;
+
+                font-family: 'UKNumberPlate', sans-serif;
+
+            }
+        }
+
+        .right {
+
+        }
+
+    }
 
 }
