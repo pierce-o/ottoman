@@ -11,22 +11,19 @@
                 <p class="plate-display">{{ reg.reg }}</p>
             </div>
             <div class="right">
-                <div class="date"><p>Date Added</p><p>{{ convertToString(reg.dateAdded) }}</p></div>
+                <div class="date"><p>Date Added</p><p>{{ convertToString( reg.dateAdded ) }}</p></div>
                 <ng-container *ngIf="reg.storageType == 'retention'; else vehicle">
                     <div class="date"><p>Retention Since</p><p>{{ convertToString( reg.retentionSince ) }}</p></div>
                     <div class="date"><p>Retention Expire</p><p>{{ convertToString( reg.retentionExpire ) }}</p></div>
                 </ng-container>
                 <ng-template #vehicle>
-
                     <div *ngIf="reg.hasRelatedVehicle; else vehicleAddition">
                         <p>We have found your this reg attached to a vehicle in your app.</p>
                         <div class="view-info" (click)="null">View Info</div>
                     </div>
-                    <ng-template #vehicleAddtion>
-                        <div>
-                            <p>We cannot find your reg attached to a vehicle in your app.</p>
-                            <div class="view-info" (click)="null">Add It</div>
-                        </div>
+                    <ng-template #vehicleAddition>
+                        <p>We cannot find your reg attached to a vehicle in your app.</p>
+                        <div class="view-info" (click)="null">Add It</div>
                     </ng-template>
                     
                 </ng-template>

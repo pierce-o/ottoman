@@ -68,6 +68,7 @@ $odd-color: #F8F8F8;
             width: max-content;
             display: flex;
             flex-direction: column;
+            min-width: 40%;
  
             .storage-type {
                 flex: 1;
@@ -98,17 +99,19 @@ $odd-color: #F8F8F8;
 
         .right {
             padding-left: .5em;
+            padding-right: .6em;
             flex: 1;
             padding-top: .75em;
             .date {
                 display: flex;
                 text-align: left;
-                font-size: .9em;
 
                 p {             
                     margin: 0;  
+                    font-size: .75em;
                     &:nth-child(1) {
                         flex: 1;
+                        font-size: .9em;
                     }
                 }
 
