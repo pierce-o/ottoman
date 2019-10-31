@@ -7,14 +7,14 @@
                 </div>
             </div>
             <div class="left">
-                <p class="storage-type">{{ reg.storageType }}</p>
+                <p class="storage-type">{{ reg.storageType | titlecase }}</p>
                 <p class="plate-display">{{ reg.reg }}</p>
             </div>
             <div class="right">
-                <p class="date-added">{{ reg.dateAdded }}</p>
+                <div class="date"><p>Date Added</p><p>{{ convertToString(reg.dateAdded) }}</p></div>
                 <ng-container *ngIf="reg.storageType == 'retention'; else vehicle">
-                    <p>{{ reg.retentionSince }}</p>
-                    <p>{{ reg.retentionExpire }}</p>
+                    <div class="date"><p>Retention Since</p><p>{{ convertToString( reg.retentionSince ) }}</p></div>
+                    <div class="date"><p>Retention Expire</p><p>{{ convertToString( reg.retentionExpire ) }}</p></div>
                 </ng-container>
                 <ng-template #vehicle>
 

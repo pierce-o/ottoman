@@ -3,6 +3,7 @@ import { RegData } from '../../models/regData';
 import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
 import { Router } from '@angular/router';
+import { PipesModule } from '../pipes/pipes.module';
 
 @Component({
   selector: 'app-registrations',
@@ -64,6 +65,15 @@ export class RegistrationsComponent implements OnInit {
       this.selectedIndex = value; // Else set it to this item
 
     this.valueChange.emit( this.selectedIndex ); // Emit the value
+  }
+
+  convertToString(dateString: string): string {
+    if(dateString != null && dateString != undefined && dateString != "") {
+      let date = new Date( Number.parseInt( dateString ) );
+      return date.toLocaleDateString();
+    } else {
+      return "";
+    }
   }
 
 }
