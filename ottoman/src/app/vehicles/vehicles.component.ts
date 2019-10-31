@@ -22,8 +22,7 @@ export class VehiclesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.storage.vehiclesObserable.subscribe( data => this.vehicles = data );
-
+    this.storage.getVehicleEmitter().then( emitter => { emitter.subscribe( data => this.vehicles = data ); });
     this.storage.updateVehicles();
 
   }

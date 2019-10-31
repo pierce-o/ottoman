@@ -20,6 +20,21 @@ export class StorageManagerService {
 
   constructor(private storage: Storage) { }
 
+  getRegEmitter(): Promise<EventEmitter<RegData[]>> {
+    return new Promise<EventEmitter<RegData[]>>((resolve, reject) => {
+      if(this.registrationsObserable != null)
+        resolve(this.registrationsObserable);
+      else
+        reject();
+    });
+  }
+
+  getVehicleEmitter(): Promise<EventEmitter<VehicleData[]>> {
+    return new Promise<EventEmitter<VehicleData[]>>((resolve, reject) => {
+      resolve(this.vehiclesObserable);
+    });
+  }
+
   updateVehicles() {
     this.getAllDisplayableVehicles().then( data => this.vehiclesObserable.emit( data ) );
   }

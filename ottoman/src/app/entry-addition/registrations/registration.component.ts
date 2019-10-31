@@ -39,9 +39,9 @@ export class RegistrationComponent implements OnInit {
 
     this.storage.registerReg( this.tempRegdata ).then( data => {
       this.storage.updateRegistrations();
-      this.navCtrl.back();
-      this.tempRegdata = new RegData();
     });
+
+    this.tempRegdata = new RegData();
 
   }
 
