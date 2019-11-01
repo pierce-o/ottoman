@@ -117,6 +117,25 @@ $odd-color: #F8F8F8;
 
             }
 
+            .vehicle-message {
+                margin: 0;
+                font-size: .65em;
+                text-align: center;
+                margin-bottom: .2em;
+            }
+            
+            .view-info {
+                background-color: #2D78AB;
+                color: white;
+                font-size: .76em;
+                font-weight: bold;
+                width: max-content;
+                padding: .1em .5em 0 .5em;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 5px;
+            }
+
         }
 
     }

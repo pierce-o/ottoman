@@ -26,14 +26,16 @@ export class RegistrationsComponent implements OnInit {
       emitter.subscribe( data => {
 
         data.forEach(reg => {
-          if(reg.storage != 'vehicle')
-            return;
-          let relatedVehicle = this.getRelatedReg( reg );
 
-          if(relatedVehicle != null && relatedVehicle != undefined) {
-            reg.hasRelatedVehicle = true;
-            reg.relatedVehicle = relatedVehicle;
-          }
+          if(reg.storageType != "vehicle")
+            return;
+          
+          this.getRelatedReg( reg ).then( relatedVehicle => {
+            if(relatedVehicle != null && relatedVehicle != undefined) {
+              reg.hasRelatedVehicle = true;
+              reg.relatedVehicle = relatedVehicle;
+            }
+          });
 
         });
 
@@ -44,12 +46,11 @@ export class RegistrationsComponent implements OnInit {
 
   }
 
-  getRelatedReg(reg: RegData): VehicleData {
-    let vehicleData = null; this.storage.getAllDisplayableVehicles().then( (vehicles: VehicleData[]) => {
-      vehicleData = vehicles.find( x => { return (x.dvlaData.registration.toLowerCase().trim() == reg.reg.toLowerCase().trim()) } );
+  getRelatedReg(reg: RegData): Promise<VehicleData> {
+    return this.storage.getAllDisplayableVehicles().then( (vehicles: VehicleData[]) => {
+      return vehicles.find( x => { return (x.dvlaData.registration.toLowerCase().trim() == reg.reg.toLowerCase().trim()) } );
     });
 
-    return vehicleData;
   }
 
   goToPage( regData: RegData ) {

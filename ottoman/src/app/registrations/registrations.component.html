@@ -18,12 +18,12 @@
                 </ng-container>
                 <ng-template #vehicle>
                     <div *ngIf="reg.hasRelatedVehicle; else vehicleAddition">
-                        <p>We have found your this reg attached to a vehicle in your app.</p>
-                        <div class="view-info" (click)="null">View Info</div>
+                        <p class="vehicle-message">We have found your this reg attached to a vehicle in your app.</p>
+                        <div class="view-info" (click)="null">VIEW INFO</div>
                     </div>
                     <ng-template #vehicleAddition>
-                        <p>We cannot find your reg attached to a vehicle in your app.</p>
-                        <div class="view-info" (click)="null">Add It</div>
+                        <p class="vehicle-message">We cannot find your reg attached to a vehicle in your app.</p>
+                        <div class="view-info" (click)="null">ADD IT</div>
                     </ng-template>
                     
                 </ng-template>
