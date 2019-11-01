@@ -119,4 +119,11 @@ export class HomePage {
     }
   }
 
+  handleIndex(index: number): void {
+    if(index == -999)
+      this.goToAddition();
+    else
+      this.selectedIndex = index;
+  }
+
 }

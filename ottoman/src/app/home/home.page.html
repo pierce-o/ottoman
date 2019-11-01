@@ -31,10 +31,10 @@
     <ng-container [ngSwitch]="selectedTab">
 
       <ng-container *ngSwitchCase="'vehicles'">
-        <app-vehicles [hidden]="false" #vehiclesList (valueChange)="selectedIndex = $event"></app-vehicles>
+        <app-vehicles [hidden]="false" #vehiclesList (valueChange)="handleIndex($event)"></app-vehicles>
       </ng-container>
       <ng-container *ngSwitchCase="'registrations'"> 
-        <app-registrations></app-registrations>
+        <app-registrations [hidden]="false" #vehiclesList (valueChange)="handleIndex($event)"></app-registrations>
       </ng-container>
       <div *ngSwitchDefault class="tab-error"> An error has occured. Please reload the app. </div>
 

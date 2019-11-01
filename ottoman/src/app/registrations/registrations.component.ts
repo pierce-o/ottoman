@@ -13,7 +13,6 @@ import { PipesModule } from '../pipes/pipes.module';
 export class RegistrationsComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter<number>();
-
   registrations: RegData[];
 
   selectedIndex: number = -1;
@@ -75,6 +74,22 @@ export class RegistrationsComponent implements OnInit {
     } else {
       return "";
     }
+  }
+
+  goToAdditionPage(): void {
+    this.valueChange.emit(-999);
+  }
+
+  viewVehicleInfo( reg: RegData ): void {
+
+    if(reg.hasRelatedVehicle == false)
+      return;
+
+    this.storage.getIndexOfVehicle( reg.relatedVehicle ).then( index => {
+      console.log(index);
+      if(index >= 0)
+        this.router.navigate(['/view', index, 'vehicle']);
+    });
   }
 
 }

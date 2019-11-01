@@ -103,7 +103,8 @@ export class StorageManagerService {
 
   getIndexOfVehicle(vehicleData: VehicleData): Promise<number> {
     return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
-      return vehicles.indexOf( vehicleData );
+      // Compare the reg and get the index of that element, this should be reliable since legally there is no way two cars can have the same current reg 
+      return vehicles.findIndex( x => x.dvlaData.registration == vehicleData.dvlaData.registration );
     });
   }
 
