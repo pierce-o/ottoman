@@ -12,6 +12,7 @@ import { VehiclesComponent } from '../vehicles/vehicles.component';
 export class HomePage {
 
   @ViewChild("vehiclesList", {static: false}) vehiclesList : VehiclesComponent;
+  @ViewChild("registrationList", {static: false}) registrationList : VehiclesComponent;
 
   selectedTab: string = "vehicles";
   selectedIndex: number = -1;
@@ -65,7 +66,7 @@ export class HomePage {
 
           this.router.navigate( ['/edit', this.selectedIndex, 'registration'] ).then( data => {
             // Deseleted the selected vehicle
-            this.vehiclesList.selectIndex(-1, true);
+            this.registrationList.selectIndex(-1, true);
           });
 
         break;
@@ -88,7 +89,7 @@ export class HomePage {
       case 'vehicles': // Carry out the deletion for the vehicles
 
         // Create an options value
-        let opts = {
+        let vehOpts = {
           header: 'Are you sure you want to delete this vehicle?',
           message: 'Deleting this will delete all data related to this vehicle.',
           buttons: [
@@ -109,10 +110,38 @@ export class HomePage {
           ]
         };
 
-        this.alertCtrl.create( opts ).then( alert => alert.present() );
+        this.alertCtrl.create( vehOpts ).then( alert => alert.present() );
 
         break;
 
+      case 'registrations':
+
+        // Create an options value
+        let regOpts = {
+          header: 'Are you sure you want to delete this registration?',
+          message: 'Deleting this will delete all data related to this registration.',
+          buttons: [
+            {
+              text: 'Okay',
+              handler: () => { // If okay is selected then remove the vehicle
+                this.storage.removeReg(this.selectedIndex).then( data => {
+                  // Once the vehicle has been removed then update the vehicles list and remove the selected index
+                  this.storage.updateRegistrations();
+                  this.registrationList.selectIndex(-1);
+                });
+              }
+            },
+            {
+              text: 'Cancel',
+              role: 'cancel'
+            }
+          ]
+        };
+
+        this.alertCtrl.create( regOpts ).then( alert => alert.present() );
+
+        break;  
+        
       default: 
         break;
 
@@ -120,8 +149,10 @@ export class HomePage {
   }
 
   handleIndex(index: number): void {
-    if(index == -999)
+    if(index == -999) {
+      this.selectedTab = "vehicles";
       this.goToAddition();
+    }
     else
       this.selectedIndex = index;
   }
