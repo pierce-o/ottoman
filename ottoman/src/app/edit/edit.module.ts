@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { EditPage } from './edit.page';
 import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
+import { RegistrationEditComponent } from './registration-edit/registration-edit.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
   ],
   declarations: [
     EditPage,
-    VehicleEditComponent
+    VehicleEditComponent,
+    RegistrationEditComponent
   ]
 })
 export class EditPageModule {}

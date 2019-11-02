@@ -19,7 +19,7 @@
                             <div class="details">
                                 <p>{{ vehicle.dvlaData.registrationDate | iondate: 'Y' }}</p>
                                 <p>{{ vehicle.currentMileage | toThousands }}{{ (vehicle.currentMileage > 999 && vehicle.currentMileage < 1000000) ? 'k' : '' }}</p>
-                                <p>{{ vehicle.dvlaData.engineSize | floatDisplay }} {{ vehicle.dvlaData.fuelType }}</p>
+                                <p>{{ vehicle.dvlaData.engineSize | floatDisplay }} {{ windowWidth > 350 ? vehicle.dvlaData.fuelType : '' }}</p>
                             </div>
                         </div>
                         <div class="bottom-bar">

@@ -18,13 +18,15 @@ export class VehiclesComponent implements OnInit {
   vehicles: VehicleData[] = [];
   selectedIndex: number = -1;
 
+  windowWidth: number = -1;
+
   constructor(private storage: StorageManagerService, private navCtrl: NavController, private router: Router) { }
 
   ngOnInit() {
 
     this.storage.getVehicleEmitter().then( emitter => { emitter.subscribe( data => this.vehicles = data ); });
     this.storage.updateVehicles();
-
+    this.windowWidth = window.innerWidth;
   }
 
   dateToColour(dateString) {
@@ -103,7 +105,8 @@ export class VehiclesComponent implements OnInit {
 
   getDate(dateString: string) {
     let date = new Date( dateString );
-    return date.toLocaleDateString();
+    let opts = { day: 'numeric',month: 'short', year: '2-digit' };
+    return date.toLocaleDateString("en-GB", opts);
   }
 
 }

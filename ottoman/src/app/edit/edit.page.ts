@@ -5,6 +5,7 @@ import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
 import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 import { RegistrationEditComponent } from './registration-edit/registration-edit.component';
+import { RegData } from 'src/models/regData';
 
 @Component({
   selector: 'app-edit',
@@ -20,7 +21,7 @@ export class EditPage implements OnInit {
   type: string;
 
   vehicle: VehicleData = null;
-  registration: VehicleData = null;
+  registration: RegData = null;
 
   constructor( private navCtrl: NavController, private activeRoute: ActivatedRoute, private storage: StorageManagerService ) { }
 
@@ -32,13 +33,11 @@ export class EditPage implements OnInit {
       if(this.type == "vehicle") {
         this.storage.getVehicleById( this.index ).then( vehicle => {
           this.vehicle = vehicle;
-          this.vehicleEdit.vehicleData = vehicle;
           this.vehicleEdit.vehicleIndex = this.index;
         } );
       } else if (this.type == "registration") {
         this.storage.getRegById( this.index ).then( registration => {
           this.registration = registration;
-          this.registrationEdit.registrationData = registration;
           this.registrationEdit.registrationIndex = this.index;
         });
       }
