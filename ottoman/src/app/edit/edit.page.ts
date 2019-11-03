@@ -54,6 +54,10 @@ export class EditPage implements OnInit {
           this.vehicleEdit.updateVehicle();
         break;
 
+      case 'registration':
+          this.registrationEdit.updateReg();
+        break;
+  
       default: 
         break;
     }

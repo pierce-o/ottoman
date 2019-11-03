@@ -1,8 +1,24 @@
 <div class="content" *ngIf="registrationData != null">
 
-  <ion-label class="title">Registration</ion-label>
-  <div class="input">
-    <ion-input placeholder="Your registration" [(ngModel)]="registrationData.reg"  (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
-  </div>
+  <ion-row>
+    <ion-label class="title">Registration</ion-label>
+    <div class="input">
+      <ion-input placeholder="Your registration" [(ngModel)]="registrationData.reg"  (input)="upperCase($event)" (ionBlur)="restrictInput($event)"></ion-input>
+    </div>
+    <ion-label class="error" *ngIf="regError">Your registration is an invalid format.</ion-label>
+  </ion-row>
+  <ion-label class="title">Attachment Type</ion-label>
+  <ion-select value="retention" okText="Confirm" cancelText="Cancel" [(ngModel)]="registrationData.storageType">
+    <ion-select-option value="retention">Retention</ion-select-option>
+    <ion-select-option value="vehicle">Vehicle</ion-select-option>
+  </ion-select>
+
+  <ng-container *ngIf="registrationData.storageType == 'retention'">
+    <ion-label class="title">Retention Since</ion-label>
+    <ion-datetime displayFormat="MMM DD, YYYY" (ionChange)="updateExpiration($event)"></ion-datetime>
+
+    <ion-label class="title">Retention Expire</ion-label>
+    <ion-datetime></ion-datetime>
+  </ng-container>
 
 </div>

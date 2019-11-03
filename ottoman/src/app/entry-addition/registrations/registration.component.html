@@ -1,15 +1,17 @@
 <div class="user-control">
   <div class="cancel-disabled">CANCEL</div>
   <div class="title">ADD REG</div>
-  <div class="save">SAVE</div>
+  <div class="save" (click)="addReg()">SAVE</div>
 </div>
   
 <div class="content"> 
-  <ion-label class="title">Registration</ion-label>
-  <div class="input">
-    <ion-input placeholder="Registration" (input)="upperCase($event)" (ionBlur)="restrictInput($event)" [(ngModel)]="tempRegdata.reg"></ion-input>
-  </div>
-  <ion-label class="error" *ngIf="regError">Your registration is an invalid format.</ion-label>
+  <ion-row>
+    <ion-label class="title">Registration</ion-label>
+    <div class="input">
+      <ion-input placeholder="Registration" (input)="upperCase($event)" (ionBlur)="restrictInput($event)" [(ngModel)]="tempRegdata.reg"></ion-input>
+    </div>
+    <ion-label class="error" *ngIf="regError">Your registration is an invalid format.</ion-label>
+  </ion-row>
 
   <ion-label class="title">Attachment Type</ion-label>
   <ion-select value="retention" okText="Confirm" cancelText="Cancel" [(ngModel)]="tempRegdata.storageType">
@@ -25,10 +27,4 @@
     <ion-datetime></ion-datetime>
   </ng-container>
 
-</div>  
-
-<ion-footer no-border>
-  <div class="element-centre">
-    <ion-button size="small" (click)="addReg()">ADD VEHICLE</ion-button>
-  </div>          
-</ion-footer>
+</div> 

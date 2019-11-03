@@ -1,7 +1,7 @@
 <div class="user-control">
   <div class="cancel-disabled">CANCEL</div>
   <div class="title">ADD VEHICLE</div>
-  <div class="save">SAVE</div>
+  <div class="save" (click)="addVehicle()">SAVE</div>
 </div>
 
 <div class="content" *ngIf="isManualMode == false; else manual">
@@ -171,9 +171,3 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-
-<ion-footer no-border>
-  <div class="element-centre">
-    <ion-button size="small" (click)="addVehicle()">ADD VEHICLE</ion-button>
-  </div>          
-</ion-footer>.
