@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { StorageManagerService } from '../storage-manager.service';
 import { VehicleData } from 'src/models/vehicleData';
 import { EventEmitter } from '@angular/core';
+import { RegData } from 'src/models/regData';
 
 @Component({
   selector: 'app-view',
@@ -17,6 +18,7 @@ export class ViewPage implements OnInit {
   selectedMot: number = -1;
 
   vehicle: VehicleData = new VehicleData();
+  reg: RegData = new RegData();
 
   motEventEmitter: EventEmitter<number>;
 
@@ -30,6 +32,10 @@ export class ViewPage implements OnInit {
       if(this.type == "vehicle") {
         this.storage.getVehicleById( this.index ).then( vehicle => {
           this.vehicle = vehicle;
+        } );
+      } else if(this.type == "registration") {
+        this.storage.getRegById( this.index ).then( reg => {
+          this.reg = reg;
         } );
       }
 

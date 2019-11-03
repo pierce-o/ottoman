@@ -4,9 +4,17 @@
       <ion-icon ios="ios-add" md="md-add"></ion-icon> 
     </div>
 
-    <ng-container *ngIf="selectedMot < 0; else mot">
-      <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
-      <p slot="end">EDIT</p>
+    <ng-container *ngIf="(selectedMot < 0 && (vehicle != null || reg != null)); else mot">
+
+      <ng-container [ngSwitch]="type">
+
+        <ng-container *ngSwitchCase="'vehicle'"> <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title> </ng-container>
+        <ng-container *ngSwitchCase="'registration'"> <ion-title>{{ reg.reg }}</ion-title> </ng-container>
+
+        <p slot="end">EDIT</p>
+
+      </ng-container>
+
     </ng-container>
 
     <ng-template #mot>
@@ -19,7 +27,14 @@
 <ion-content>
 
   <ng-container *ngIf="selectedMot == -1; else motview">
-    <app-vehicle-details [vehicleData]="vehicle" (selectedMot)="selectedMot=$event"></app-vehicle-details>
+    <ng-container [ngSwitch]="type">
+      <ng-container *ngSwitchCase="'vehicle'">
+        <app-vehicle-details [hidden]="false" [vehicleData]="vehicle" (selectedMot)="selectedMot=$event"></app-vehicle-details>
+      </ng-container>
+      <ng-container *ngSwitchCase="'registration'">
+        <app-reg-details [hidden]="false" [regData]="reg"></app-reg-details>
+      </ng-container>
+    </ng-container>
   </ng-container>
   
   <ng-template #motview>

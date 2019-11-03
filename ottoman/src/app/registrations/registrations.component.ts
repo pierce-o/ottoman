@@ -92,4 +92,10 @@ export class RegistrationsComponent implements OnInit {
     });
   }
 
+  viewEntry(index: number): void {
+
+    this.router.navigate( ['/view', index, 'registration'] );
+
+  }
+
 }

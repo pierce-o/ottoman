@@ -6,7 +6,7 @@
                     <ion-icon name="checkmark"></ion-icon>
                 </div>
             </div>
-            <div class="left">
+            <div class="left" (click)="viewEntry(i)">
                 <p class="storage-type">{{ reg.storageType | titlecase }}</p>
                 <p class="plate-display">{{ reg.reg }}</p>
             </div>
