@@ -104,7 +104,7 @@ export class StorageManagerService {
   getIndexOfVehicle(vehicleData: VehicleData): Promise<number> {
     return this.storage.get( keys.vehicles ).then( ( vehicles: VehicleData[] ) => {
       // Compare the reg and get the index of that element, this should be reliable since legally there is no way two cars can have the same current reg 
-      return vehicles.findIndex( x => x.dvlaData.registration == vehicleData.dvlaData.registration );
+      return vehicles.findIndex( x => x.dvlaData.registration.toLowerCase().trim() == vehicleData.dvlaData.registration.toLowerCase().trim() );
     });
   }
 
@@ -167,7 +167,7 @@ export class StorageManagerService {
 
   getIndexOfReg(regData: RegData): Promise<number> {
     return this.storage.get( keys.regs ).then( ( regs: RegData[] ) => {
-      return regs.indexOf( regData );
+      return regs.findIndex( x => x.reg.toLowerCase().trim() == regData.reg.toLowerCase().trim() );
     });
   }
 

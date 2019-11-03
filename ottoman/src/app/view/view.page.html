@@ -1,4 +1,4 @@
-<ion-header no-border [ngClass]="(selectedMot < 0) ? 'underlined-title' : ''">
+<ion-header no-border [ngClass]="(selectedMot < 0 && type != 'registration') ? 'underlined-title' : ''">
   <ion-toolbar no-border class="ion-text-center">
     <div slot="start" (click)="goBack();">
       <ion-icon ios="ios-add" md="md-add"></ion-icon> 
@@ -8,10 +8,8 @@
 
       <ng-container [ngSwitch]="type">
 
-        <ng-container *ngSwitchCase="'vehicle'"> <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title> </ng-container>
-        <ng-container *ngSwitchCase="'registration'"> <ion-title>{{ reg.reg }}</ion-title> </ng-container>
-
-        <p slot="end">EDIT</p>
+        <ng-container *ngSwitchCase="'vehicle'"> <ion-title>{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title> <p slot="end">EDIT</p> </ng-container>
+        <ng-container *ngSwitchCase="'registration'"> <ion-title>ottoman</ion-title> </ng-container>
 
       </ng-container>
 

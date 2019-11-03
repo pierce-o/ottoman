@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'UKNumberPlate';
+    src: url('../../../assets/UKNumberPlate.ttf') format("opentype");
+}
+
+.reg-details {
+
+    width: 100%;
+
+    .reg-view {
+
+        .reg {
+
+            margin: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+            font-size: 3em;
+            width: fit-content;
+            background-color: #F9EA14;
+            border: .05em solid black;
+            border-radius: 8px;
+            padding: .1em .35em .1em .35em;
+            text-align: center;
+
+            font-family: 'UKNumberPlate', sans-serif;
+        }
+
+        .edit {
+            width: 100%;
+            padding-right: .4em;
+            margin: 0;
+            text-align: right;
+            font-weight: bold;
+            color: #2D78AB;
+            font-size: 1em;
+            font-family: "DM Sans", sans-serif;
+        }
+
+        border-bottom: 4px solid #2D78AB;
+
+    }
+
+    .details {
+        background-color: #707070;
+    }
+
+}
