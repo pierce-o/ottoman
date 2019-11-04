@@ -20,4 +20,13 @@ export class RegdetailsComponent implements OnInit {
     this.storage.getIndexOfReg( this.regData ).then( index => this.router.navigate(['/edit', index, 'registration']));
   }
 
+  convertToString(dateString: string): string {
+    if(dateString != null && dateString != undefined && dateString != "") {
+      let date = new Date( Number.parseInt( dateString ) );
+      return date.toLocaleDateString();
+    } else {
+      return "";
+    }
+  }
+
 }

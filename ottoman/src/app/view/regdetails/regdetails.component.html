@@ -7,6 +7,26 @@
 
   <div class="details">
 
+    <ion-row class="same-line">
+      <p>Registration Type</p> <p>{{ regData.storageType | titlecase }}</p>
+    </ion-row>
+
+    <ion-row class="same-line">
+      <p>Date Added</p> <p>{{ convertToString(regData.dateAdded) }}</p>
+    </ion-row>
+
+    <ng-container *ngIf="regData.storageType == 'retention'">
+    
+      <ion-row class="same-line">
+        <p>Retention Since</p> <p>{{ convertToString(regData.retentionSince) }}</p>
+      </ion-row>
+
+      <ion-row class="same-line">
+        <p>Retention Expires</p> <p>{{ convertToString(regData.retentionExpire) }}</p>
+      </ion-row>
+
+    </ng-container>
+
   </div>
 
 </div>
