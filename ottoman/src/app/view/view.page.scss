@@ -10,6 +10,7 @@ ion-toolbar {
         height: 2em;
         background-color: #2D78AB;
         clip-path: circle(12px at 50% 50%);
+        z-index: 999;
         
         ion-icon {
             width: 90%;
