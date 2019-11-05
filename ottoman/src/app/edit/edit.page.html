@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar text-center>
+  <ion-toolbar text-center mode="ios">
     <ng-container *ngIf="type == 'vehicle'; else regs">
       <ion-label class="save" slot="start" (click)="saveData()">SAVE</ion-label>
-      <ion-title *ngIf="vehicle != null">{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
+      <ion-title *ngIf="vehicle != null" class="ion-text-center">{{ vehicle.dvlaData.make }} {{ vehicle.dvlaData.model }}</ion-title>
       <ion-label class="cancel" slot="end" (click)="goBack()">CANCEL</ion-label>
     </ng-container>
     <ng-template #regs>
         <ion-label class="save" slot="start" (click)="saveData()">SAVE</ion-label>
-        <ion-title *ngIf="registration != null">{{ registration.reg }}</ion-title>
+        <ion-title *ngIf="registration != null" class="ion-text-center">{{ registration.reg }}</ion-title>
         <ion-label class="cancel" slot="end" (click)="goBack()">CANCEL</ion-label>
     </ng-template>
     
