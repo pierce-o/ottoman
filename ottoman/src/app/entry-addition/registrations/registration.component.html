@@ -21,10 +21,10 @@
 
   <ng-container *ngIf="tempRegdata.storageType == 'retention'">
     <ion-label class="title">Retention Since</ion-label>
-    <ion-datetime displayFormat="MMM DD, YYYY" (ionChange)="updateExpiration($event)"></ion-datetime>
+    <ion-datetime displayFormat="MMM DD, YYYY" (ionChange)="updateExpiration($event)" [(ngModel)]="tempRegdata.retentionSince"></ion-datetime>
 
     <ion-label class="title">Retention Expire</ion-label>
-    <ion-datetime></ion-datetime>
+    <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="tempRegdata.retentionExpire"></ion-datetime>
   </ng-container>
 
 </div> 
